@@ -26,8 +26,8 @@
     rgba(40, 75, 99, 1) 0%,
     rgba(60, 110, 113, 1) 100%
   );
-  --primary-background--tertiary-font: #fff;
-  --secondary--background--primary-font: #737373;
+  --primary-light: #fff;
+  --secondary-light: #737373;
   --secondary--font: #c4c4c4;
   --navigation-icon-color: #284b63;
   --font-face-input: 'RobotoCondensed', italic;
