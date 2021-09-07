@@ -22,7 +22,7 @@ export default function LogoIcon(
       <path
         d="M84.5 35.5C97.5 5.50005 99.5 -5.71716 119 23C130.883 40.5 142.5 45 155.5 24.8733C155.5 24.8733 166.5 4.43437 183 24.7172C199.5 45 205.5 35 205.5 35"
         stroke="#F25F5C"
-        stroke-width="0.7"
+        strokeWidth="0.7"
       />
     </svg>
   );
