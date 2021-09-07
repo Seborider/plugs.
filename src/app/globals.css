@@ -1,13 +1,41 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'RobotoCondensed';
+  src: url('assets/fonts/RobotoCondensed-Regular.ttf');
+  font-weight: 400;
+  font-style: italic;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'DancingScript';
+  src: url('assets/fonts/DancingScript-Regular.ttf');
+  font-weight: 400;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-accent: #f25f5c;
+  --secondary-accent: #3c6e71;
+  --tertiary-accent: #bfdbf7;
+  --background-gradient: linear-gradient(
+    170deg,
+    rgba(40, 75, 99, 1) 0%,
+    rgba(60, 110, 113, 1) 100%
+  );
+  --primary-light: #fff;
+  --secondary-light: #737373;
+  --secondary--font: #c4c4c4;
+  --navigation-icon-color: #284b63;
+  --font-face-input: 'RobotoCondensed', italic;
+  --font-face-regular: 'RobotoCondensed';
+  --font-face-header: 'DancingScript';
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-face-regular);
 }
