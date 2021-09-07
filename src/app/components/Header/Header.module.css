@@ -1,0 +1,16 @@
+.headerContainer {
+  display: flex;
+  min-height: 2.5rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-light);
+  margin: 0.2rem 0 0 0.2rem;
+}
+
+.logo {
+  padding-left: 0.5rem;
+}
+
+.burgerButton {
+  padding-right: 1rem;
+}
