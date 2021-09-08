@@ -16,9 +16,11 @@ export const LogoHeader = (): JSX.Element => (
   <Header withLogo withBurgerButton />
 );
 export const SearchHeader = (): JSX.Element => (
-  <Header children={'Search'} withInputBar></Header>
+  <Header children={'Search'} withInputBar input={'Search'}></Header>
 );
-export const AddHeader = (): JSX.Element => <Header withInputBar>Add</Header>;
+export const AddHeader = (): JSX.Element => (
+  <Header children={'Add'} withInputBar input={'Add'}></Header>
+);
 export const MixerHeader = (): JSX.Element => <Header>Mixer</Header>;
 export const EditHeader = (): JSX.Element => (
   <Header withBackButton>Edit</Header>
