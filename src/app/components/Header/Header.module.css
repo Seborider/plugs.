@@ -17,10 +17,17 @@
 }
 
 .logo,
-.backButton {
+.backButton,
+.headerText {
   padding-left: 0.5rem;
 }
 
 .burgerButton {
+  padding-right: 1rem;
+}
+
+.inputBar {
+  width: 100%;
+  padding-left: 1rem;
   padding-right: 1rem;
 }
