@@ -13,6 +13,7 @@ type HeaderProps = {
   withBackButton?: boolean;
   withBurgerButton?: boolean;
   withInputBar?: boolean;
+  input?: 'Search' | 'Add';
   className?: string;
 };
 
@@ -48,7 +49,7 @@ export default function Header({
       {children}
       {withInputBar && (
         <div className={styles.inputBar}>
-          <InputBar />
+          <InputBar input={'Search'} />
         </div>
       )}
     </header>
