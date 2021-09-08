@@ -1,0 +1,7 @@
+.search {
+  background-color: var(--primary-light);
+  border-style: none;
+  font-family: var(--font-face-input);
+  color: --secondary-light;
+  width: 100%;
+}
