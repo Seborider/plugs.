@@ -1,13 +1,23 @@
 .headerContainer {
   display: flex;
-  min-height: 2.5rem;
+  min-height: 4rem;
   justify-content: space-between;
   align-items: center;
   background-color: var(--primary-light);
   margin: 0.2rem 0 0 0.2rem;
 }
 
-.logo {
+.headerContainer__NoLogo {
+  display: flex;
+  min-height: 4rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-light);
+  margin: 0.2rem 0 0 0.2rem;
+}
+
+.logo,
+.backButton {
   padding-left: 0.5rem;
 }
 

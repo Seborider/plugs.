@@ -12,8 +12,14 @@ export default {
   },
 };
 
-export const LogoHeader = (): JSX.Element => <Header></Header>;
-export const SearchHeader = (): JSX.Element => <Header>Search</Header>;
-export const AddHeader = (): JSX.Element => <Header>Add</Header>;
+export const LogoHeader = (): JSX.Element => (
+  <Header withLogo withBurgerButton />
+);
+export const SearchHeader = (): JSX.Element => (
+  <Header children={'Search'} withInputBar></Header>
+);
+export const AddHeader = (): JSX.Element => <Header withInputBar>Add</Header>;
 export const MixerHeader = (): JSX.Element => <Header>Mixer</Header>;
-export const EditHeader = (): JSX.Element => <Header>Edit</Header>;
+export const EditHeader = (): JSX.Element => (
+  <Header withBackButton>Edit</Header>
+);
