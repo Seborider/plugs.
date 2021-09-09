@@ -19,7 +19,7 @@
 .logo,
 .backButton,
 .headerText {
-  padding-left: 0.5rem;
+  padding-left: 1rem;
 }
 
 .burgerButton {
@@ -30,4 +30,9 @@
   width: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.headline {
+  padding-left: 1rem;
+  width: 11%;
 }
