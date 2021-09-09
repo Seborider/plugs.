@@ -13,7 +13,7 @@ type HeaderProps = {
   withBackButton?: boolean;
   withBurgerButton?: boolean;
   withInputBar?: boolean;
-  input?: 'Search' | 'Add';
+  type?: 'search' | 'add';
   className?: string;
 };
 
@@ -24,6 +24,7 @@ export default function Header({
   withBurgerButton,
   withInputBar,
   className,
+  type,
 }: HeaderProps): JSX.Element {
   return (
     <header
@@ -49,7 +50,7 @@ export default function Header({
       {children}
       {withInputBar && (
         <div className={styles.inputBar}>
-          <InputBar input={'Search'} />
+          <InputBar type={type} />
         </div>
       )}
     </header>
