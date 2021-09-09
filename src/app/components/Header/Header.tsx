@@ -15,6 +15,7 @@ type HeaderProps = {
   withInputBar?: boolean;
   type?: 'search' | 'add';
   className?: string;
+  isHighlighted?: boolean;
 };
 
 export default function Header({
@@ -25,6 +26,7 @@ export default function Header({
   withInputBar,
   className,
   type,
+  isHighlighted,
 }: HeaderProps): JSX.Element {
   return (
     <header
@@ -39,12 +41,12 @@ export default function Header({
       )}
       {withBurgerButton && (
         <div className={styles.burgerButton}>
-          <BurgerButton />
+          <BurgerButton isHighlighted={isHighlighted} />
         </div>
       )}
       {withBackButton && (
         <div className={styles.backButton}>
-          <BackButton />
+          <BackButton isHighlighted={isHighlighted} />
         </div>
       )}
       {children && (

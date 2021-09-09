@@ -15,6 +15,10 @@ export default {
 export const LogoHeader = (): JSX.Element => (
   <Header withLogo withBurgerButton />
 );
+
+export const LogoHeaderModal = (): JSX.Element => (
+  <Header withLogo withBurgerButton isHighlighted />
+);
 export const SearchHeader = (): JSX.Element => (
   <Header withInputBar children={'Search'} type={'search'}></Header>
 );
