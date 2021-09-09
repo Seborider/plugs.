@@ -6,8 +6,8 @@
   color: var(--secondary-light);
   width: 100%;
   line-height: 2.5rem;
-  font-size: 2rem;
-  box-shadow: rgb(204, 219, 232) 3px 3px 6px inset,
+  font-size: 1.5rem;
+  box-shadow: var(--secondary-light) 3px 3px 6px inset,
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
   padding-left: 0.5rem;
 }
@@ -18,9 +18,8 @@
 
 .input::-webkit-search-cancel-button {
   -webkit-appearance: none;
-  height: 2rem;
-  width: 2rem;
-  margin-top: 0.4rem;
+  height: 1.14rem;
+  width: 1.14rem;
   margin-left: 0.2rem;
   background: url('../../assets/icons/DeleteIcon.svg');
 }
