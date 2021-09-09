@@ -1,0 +1,34 @@
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.headlineS {
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: var(--font-face-regular);
+  color: var(--secondary-light);
+}
+
+.headlineMLight {
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-family: var(--font-face-input);
+  color: var(--secondary--font);
+  font-style: italic;
+}
+
+.headlineMDark {
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-family: var(--font-face-input);
+  color: var(--secondary-light);
+}
+
+.headlineL {
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: var(--font-face-header);
+  color: var(--primary-accent);
+}
