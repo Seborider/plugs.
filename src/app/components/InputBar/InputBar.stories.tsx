@@ -6,4 +6,5 @@ export default {
   component: InputBar,
 };
 
-export const AddBar = (): JSX.Element => <InputBar />;
+export const AddBar = (): JSX.Element => <InputBar type={'add'} />;
+export const SearchBar = (): JSX.Element => <InputBar type={'search'} />;
