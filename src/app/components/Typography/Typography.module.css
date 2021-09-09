@@ -27,7 +27,7 @@ h3 {
 }
 
 .headlineL {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 400;
   font-family: var(--font-face-header);
   color: var(--primary-accent);
