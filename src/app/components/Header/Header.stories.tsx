@@ -16,12 +16,14 @@ export const LogoHeader = (): JSX.Element => (
   <Header withLogo withBurgerButton />
 );
 export const SearchHeader = (): JSX.Element => (
-  <Header children={'Search'} withInputBar type={'search'}></Header>
+  <Header withInputBar children={'Search'} type={'search'}></Header>
 );
 export const AddHeader = (): JSX.Element => (
-  <Header children={'Add'} withInputBar type={'add'}></Header>
+  <Header withInputBar children={'Add'} type={'add'}></Header>
 );
-export const MixerHeader = (): JSX.Element => <Header>Mixer</Header>;
+export const MixerHeader = (): JSX.Element => (
+  <Header children={'Mixer'}></Header>
+);
 export const EditHeader = (): JSX.Element => (
-  <Header withBackButton>Edit</Header>
+  <Header children={'Edit'} withBackButton></Header>
 );
