@@ -4,7 +4,7 @@ import Logo from '../Logo/Logo';
 import BurgerButton from '../BurgerButton/BurgerButton';
 import BackButton from '../BackButton/BackButton';
 import InputBar from '../InputBar/InputBar';
-
+import Typography from '../Typography/Typography';
 import styles from './Header.module.css';
 
 type HeaderProps = {
@@ -47,7 +47,11 @@ export default function Header({
           <BackButton />
         </div>
       )}
-      {children}
+      {children && (
+        <div className={styles.headline}>
+          <Typography size="l">{children}</Typography>
+        </div>
+      )}
       {withInputBar && (
         <div className={styles.inputBar}>
           <InputBar type={type} />
