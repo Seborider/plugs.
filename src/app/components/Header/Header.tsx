@@ -8,7 +8,7 @@ import Typography from '../Typography/Typography';
 import styles from './Header.module.css';
 
 type HeaderProps = {
-  children?: ReactNode;
+  text?: ReactNode;
   withLogo?: boolean;
   withBackButton?: boolean;
   withBurgerButton?: boolean;
@@ -19,7 +19,7 @@ type HeaderProps = {
 };
 
 export default function Header({
-  children,
+  text,
   withLogo,
   withBackButton,
   withBurgerButton,
@@ -49,9 +49,9 @@ export default function Header({
           <BackButton isHighlighted={isHighlighted} />
         </div>
       )}
-      {children && (
+      {text && (
         <div className={styles.headline}>
-          <Typography size="l">{children}</Typography>
+          <Typography size="l">{text}</Typography>
         </div>
       )}
       {withInputBar && (
