@@ -1,19 +1,18 @@
 import React from 'react';
 import styles from './InputBar.module.css';
 
-type InputBar = {
-  input?: 'Search' | 'Add';
+export type InputBarProps = {
+  type?: 'search' | 'add';
 };
 
-export default function InputBar({ input }: InputBar): JSX.Element {
+export default function InputBar({ type }: InputBarProps): JSX.Element {
   return (
     <form>
-      {input === 'Search' && (
-        <input type="search" placeholder="Search" className={styles.input} />
-      )}
-      {input === 'Add' && (
-        <input type="text" placeholder="Add gear" className={styles.input} />
-      )}
+      <input
+        type={type === 'search' ? 'search' : 'text'}
+        placeholder={type === 'search' ? 'search' : 'add gear'}
+        className={styles.input}
+      />
     </form>
   );
 }
