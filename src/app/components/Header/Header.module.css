@@ -1,0 +1,38 @@
+.headerContainer {
+  display: flex;
+  min-height: 4rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-light);
+  margin: 0.2rem 0 0 0.2rem;
+}
+
+.headerContainer__NoLogo {
+  display: flex;
+  min-height: 4rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-light);
+  margin: 0.2rem 0 0 0.2rem;
+}
+
+.logo,
+.backButton,
+.headerText {
+  padding-left: 1rem;
+}
+
+.burgerButton {
+  padding-right: 1rem;
+}
+
+.inputBar {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.headline {
+  padding-left: 1rem;
+  width: 11%;
+}
