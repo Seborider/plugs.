@@ -1,0 +1,45 @@
+.pageWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.typographyWrapper {
+  display: grid;
+  gap: 0.2rem;
+  justify-content: center;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.line {
+  border-bottom: 1px solid white;
+  width: 10rem;
+}
+
+.formWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-top: 1rem;
+}
+
+input {
+  display: none;
+}
+
+.iconBackground {
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-light);
+  width: 4rem;
+  height: 4rem;
+  box-shadow: var(--secondary-light) 3px 3px 6px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.icon {
+  margin-top: 1rem;
+  margin-left: 0.9rem;
+}

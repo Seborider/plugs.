@@ -6,7 +6,17 @@ export default {
   component: Typography,
 };
 
-export const Small = (): JSX.Element => <Typography size="s">small</Typography>;
+export const SmallLight = (): JSX.Element => (
+  <Typography size="s" color="light">
+    small
+  </Typography>
+);
+
+export const SmallDark = (): JSX.Element => (
+  <Typography size="s" color="dark">
+    small
+  </Typography>
+);
 export const MediumLight = (): JSX.Element => (
   <Typography size="m" color="light">
     medium

@@ -11,6 +11,13 @@ h3 {
   color: var(--secondary-light);
 }
 
+.headlineSWhite {
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: var(--font-face-regular);
+  color: var(--primary-light);
+}
+
 .headlineMLight {
   font-size: 1.25rem;
   font-weight: 400;
