@@ -1,0 +1,16 @@
+.navContainer {
+  display: flex;
+  justify-content: space-evenly;
+  min-height: 4rem;
+  background: var(--primary-light);
+  align-items: center;
+  margin: 0 0 0.2rem 0.2rem;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.button {
+  border: none;
+  background: none;
+}
