@@ -12,18 +12,7 @@ export default function AddIcon(
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g clip-path="url(#clip0)">
-        <path
-          d="M15 15H0M15 30V15V30ZM15 15V0V15ZM15 15H30H15Z"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-      </g>
-      <defs>
-        <clipPath id="clip0">
-          <rect width="30" height="30" />
-        </clipPath>
-      </defs>
+      <path d="M16 14.5H29.5V15.5H16.0714H15.5714V16V29.5H14.4286V16V15.5H13.9286H0.5V14.5H13.9286H14.4286V14V0.5H15.5689L15.5 13.9974L15.4974 14.5H16Z" />
     </svg>
   );
 }
