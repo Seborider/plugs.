@@ -1,3 +1,29 @@
+.container {
+  display: flex;
+  min-height: 4rem;
+  margin-left: 0.2rem;
+  background-color: var(--primary-light);
+  align-items: center;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.input {
+  background-color: var(--primary-light);
+  border: 2px solid red;
+  border-radius: 5px;
+  font-family: var(--font-face-input);
+  color: var(--secondary-light);
+  width: 100%;
+  line-height: 2.5rem;
+  font-size: 1.5rem;
+  box-shadow: var(--secondary-light) 3px 3px 6px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  padding-left: 0.5rem;
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -48,7 +74,7 @@ input:checked + .slider::before {
 }
 
 .slider.round {
-  border-radius: 30px;
+  border-radius: 34px;
 }
 
 .slider.round::before {
