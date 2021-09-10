@@ -5,6 +5,7 @@ export type TypographyProps = {
   size: 's' | 'm' | 'l';
   color?: 'light' | 'dark';
   children: React.ReactNode;
+  className?: string;
 };
 
 export default function Typography({
@@ -13,7 +14,13 @@ export default function Typography({
   color,
 }: TypographyProps): JSX.Element {
   if (size === 's') {
-    return <h3 className={styles.headlineS}>{children}</h3>;
+    return (
+      <h3
+        className={color === 'light' ? styles.headlineSWhite : styles.headlineS}
+      >
+        {children}{' '}
+      </h3>
+    );
   } else if (size === 'm') {
     return (
       <h2
