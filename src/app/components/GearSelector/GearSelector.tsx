@@ -34,7 +34,9 @@ export default function GearSelector({
   return (
     <section className={style.pageWrapper}>
       <div className={style.typographyWrapper}>
-        <Typography size="s" color="light" children="Select gear style" />
+        <Typography size="s" color="light">
+          Select gear style
+        </Typography>
         <div className={style.line}></div>
       </div>
 
@@ -74,7 +76,9 @@ export default function GearSelector({
       </form>
 
       <div className={style.optionsWrapper}>
-        <Typography size="s" color="light" children="Select options" />
+        <Typography size="s" color="light">
+          Select Options
+        </Typography>
         <div className={style.line}></div>
       </div>
     </section>
