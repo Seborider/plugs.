@@ -27,4 +27,9 @@ export const MediumDark = (): JSX.Element => (
     medium
   </Typography>
 );
+export const MediumRed = (): JSX.Element => (
+  <Typography size="m" color="red">
+    medium
+  </Typography>
+);
 export const Large = (): JSX.Element => <Typography size="l">Large</Typography>;

@@ -3,7 +3,7 @@ import styles from './Typography.module.css';
 
 export type TypographyProps = {
   size: 's' | 'm' | 'l';
-  color?: 'light' | 'dark';
+  color?: 'light' | 'dark' | 'red';
   children: React.ReactNode;
   className?: string;
 };
@@ -18,15 +18,15 @@ export default function Typography({
       <h3
         className={color === 'light' ? styles.headlineSWhite : styles.headlineS}
       >
-        {children}{' '}
+        {children}
       </h3>
     );
   } else if (size === 'm') {
     return (
       <h2
-        className={
+        className={`${
           color === 'light' ? styles.headlineMLight : styles.headlineMDark
-        }
+        } ${color === 'red' ? styles.headlineMRed : ''}`}
         color={color}
       >
         {children}
