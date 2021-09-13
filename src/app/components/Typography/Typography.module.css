@@ -33,6 +33,20 @@ h3 {
   color: var(--secondary-light);
 }
 
+.headlineMRed {
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-family: var(--font-face-input);
+  color: var(--primary-accent);
+}
+
+.headlineMGreen {
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-family: var(--font-face-input);
+  color: var(--navigation-icon-color);
+}
+
 .headlineL {
   font-size: 2.5rem;
   font-weight: 400;

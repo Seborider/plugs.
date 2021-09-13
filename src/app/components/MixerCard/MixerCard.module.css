@@ -1,0 +1,13 @@
+.cardWrapper {
+  display: flex;
+  justify-content: space-between;
+  min-height: 4rem;
+  margin-left: 0.2rem;
+  margin-bottom: 0.2rem;
+  background-color: var(--primary-light);
+  align-items: center;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
