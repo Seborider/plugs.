@@ -72,6 +72,11 @@ export default function GearSelector({
           />
         </label>
       </form>
+
+      <div className={style.optionsWrapper}>
+        <Typography size="s" color="light" children="Select options" />
+        <div className={style.line}></div>
+      </div>
     </section>
   );
 }
