@@ -13,6 +13,14 @@
   text-align: center;
 }
 
+.optionsWrapper {
+  display: grid;
+  gap: 0.2rem;
+  justify-content: center;
+  padding-top: 2rem;
+  text-align: center;
+}
+
 .line {
   border-bottom: 1px solid white;
   width: 10rem;
@@ -25,7 +33,7 @@
   padding-top: 1rem;
 }
 
-input {
+.formWrapper input {
   display: none;
 }
 

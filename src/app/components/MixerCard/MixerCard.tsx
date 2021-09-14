@@ -13,12 +13,9 @@ export default function MixerCard({
 }: MixerCardProps): JSX.Element {
   return (
     <section className={style.cardWrapper}>
-      <div>
-        <Typography size="m" color="dark" children={gearname} />
-      </div>
-      <div>
-        <Typography size="m" color="red" children={channel} />
-      </div>
+      <Typography size="m" color="dark" children={gearname} />
+
+      <Typography size="m" color="red" children={channel} />
     </section>
   );
 }
