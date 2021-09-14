@@ -6,46 +6,26 @@ import Typography from '../Typography/Typography';
 import style from './GearCardHeader.module.css';
 
 type GearCardHeaderProps = {
-  type: 'Drum' | 'Effect' | 'Synth';
+  iconType: 'Drum' | 'Effect' | 'Synth';
   name: string;
 };
 
+const IconStateMap = {
+  Synth: <SynthesizerIcon fill="var(--navigation-icon-color)" />,
+  Effect: <EffectIcon fill="var(--navigation-icon-color)" />,
+  Drum: <DrumMachineIcon fill="var(--navigation-icon-color)" />,
+};
+
 export default function GearCardHeader({
-  type,
+  iconType,
   name,
 }: GearCardHeaderProps): JSX.Element {
-  if (type === 'Synth') {
-    return (
-      <header className={style.header}>
-        <div>
-          <SynthesizerIcon fill="var(--navigation-icon-color)" />
-        </div>
-        <div>
-          <Typography size="m" color="green" children={name} />
-        </div>
-      </header>
-    );
-  } else if (type === 'Effect') {
-    return (
-      <header className={style.header}>
-        <div>
-          <EffectIcon fill="var(--navigation-icon-color)" />
-        </div>
-        <div>
-          <Typography size="m" color="green" children={name} />
-        </div>
-      </header>
-    );
-  } else {
-    return (
-      <header className={style.header}>
-        <div>
-          <DrumMachineIcon fill="var(--navigation-icon-color)" />
-        </div>
-        <div>
-          <Typography size="m" color="green" children={name} />
-        </div>
-      </header>
-    );
-  }
+  return (
+    <header className={style.header}>
+      <div>{IconStateMap[iconType]}</div>;
+      <div>
+        <Typography size="m" color="green" children={name} />
+      </div>
+    </header>
+  );
 }

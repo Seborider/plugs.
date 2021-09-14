@@ -7,11 +7,11 @@ export default {
 };
 
 export const Drum = (): JSX.Element => (
-  <GearCardHeader name="808" type="Drum" />
+  <GearCardHeader name="808" iconType="Drum" />
 );
 export const Effect = (): JSX.Element => (
-  <GearCardHeader name="Big Sky" type="Effect" />
+  <GearCardHeader name="Big Sky" iconType="Effect" />
 );
 export const Synth = (): JSX.Element => (
-  <GearCardHeader name="Moog" type="Synth" />
+  <GearCardHeader name="Moog" iconType="Synth" />
 );
