@@ -1,9 +1,9 @@
 import React from 'react';
-import GearCardEdit from './GearCardEdit';
+import GearCardButtonSection from './GearCardEdit';
 
 export default {
-  title: 'Component/GearCardEdit',
-  component: GearCardEdit,
+  title: 'Component/GearCardButtonSection',
+  component: GearCardButtonSection,
 };
 
-export const Edit = (): JSX.Element => <GearCardEdit />;
+export const ButtonSection = (): JSX.Element => <GearCardButtonSection />;

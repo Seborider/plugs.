@@ -4,7 +4,7 @@ import DeleteIcon from '../assets/DeleteIcon';
 import EditIcon from '../assets/EditIcon';
 import style from './GearCardEdit.module.css';
 
-export default function GearCardEdit(): JSX.Element {
+export default function GearCardButtonSection(): JSX.Element {
   return (
     <section className={style.container}>
       <div>
