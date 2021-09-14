@@ -9,7 +9,7 @@ import Cable_7 from '../assets/cables/Cable7_Icon';
 import Typography from '../Typography/Typography';
 import style from './GearCardConnection.module.css';
 
-type GearConnectionProps = {
+type GearCardConnectionProps = {
   connection: string;
   channel: string;
 };
@@ -30,10 +30,10 @@ const cables = [
   <Cable_7 fill="var(--navigation-icon-color)" />,
 ];
 
-export default function Cable1({
+export default function GearCardConnection({
   connection,
   channel,
-}: GearConnectionProps): JSX.Element {
+}: GearCardConnectionProps): JSX.Element {
   return (
     <section className={style.container}>
       <Typography size="s" color="dark" children={connection} />
