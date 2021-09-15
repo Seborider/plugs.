@@ -16,7 +16,7 @@ export default function GearCard({
   connections,
 }: GearCardProps): JSX.Element {
   return (
-    <section className={style.card}>
+    <article className={style.card}>
       <div className={style.cardWrapper}>
         <div className={style.header}>
           <GearCardHeader iconType={iconType} name={name} />
@@ -31,6 +31,6 @@ export default function GearCard({
         </div>
         <GearCardButtonSection />
       </div>
-    </section>
+    </article>
   );
 }
