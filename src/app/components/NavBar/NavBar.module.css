@@ -8,6 +8,9 @@
   width: 100%;
   position: fixed;
   bottom: 0;
+  -webkit-box-shadow: -3px -3px 3px var(--secondary-light);
+  -moz-box-shadow: -3px -3px 3px var(--secondary-light);
+  box-shadow: -3px -3px 3px var(--secondary-light);
 }
 
 .button {
