@@ -5,6 +5,9 @@
   align-items: center;
   background-color: var(--primary-light);
   margin: 0.2rem 0 0 0.2rem;
+  -webkit-box-shadow: 3px 3px 3px var(--secondary-light);
+  -moz-box-shadow: 3px 3px 3px var(--secondary-light);
+  box-shadow: 3px 3px 3px var(--secondary-light);
 }
 
 .headerContainer__NoLogo {
@@ -14,6 +17,9 @@
   align-items: center;
   background-color: var(--primary-light);
   margin: 0.2rem 0 0 0.2rem;
+  -webkit-box-shadow: 3px 3px 3px var(--secondary-light);
+  -moz-box-shadow: 3px 3px 3px var(--secondary-light);
+  box-shadow: 3px 3px 3px var(--secondary-light);
 }
 
 .logo,
