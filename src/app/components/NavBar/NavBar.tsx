@@ -32,11 +32,11 @@ export default function NavBar({
         <SearchIcon {...(selected === 'Search' ? active : inactive)} />
       </Link>
 
-      <Link to="" className={style.link}>
+      <Link to="/" className={style.link}>
         <HomeIcon {...(selected === 'Home' ? active : inactive)} />
       </Link>
 
-      <Link to="" className={style.link}>
+      <Link to="/Mixer" className={style.link}>
         <MixerIcon {...(selected === 'Mixer' ? active : inactive)} />
       </Link>
 
