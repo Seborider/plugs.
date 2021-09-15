@@ -37,7 +37,7 @@ export default function GearCardConnection({
   return (
     <section className={style.container}>
       <Typography size="s" color="dark" children={connection} />
-      <div>{cables[getRandomCable(0, 6)]}</div>
+      <div className={style.middle}>{cables[getRandomCable(0, 6)]}</div>
       <div className={style.right}>
         <Typography size="s" color="dark" children={channel} />
       </div>

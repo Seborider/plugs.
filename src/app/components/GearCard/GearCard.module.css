@@ -1,0 +1,22 @@
+.cardWrapper {
+  display: grid;
+  grid-template-rows: repeat(1fr, minmax(10px, 1fr));
+  justify-self: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.card {
+  background-color: var(--primary-light);
+  border-radius: 5px;
+  border: 1px solid var(--tertiary-accent);
+}
+
+.header {
+  border-bottom: 1px solid var(--navigation-icon-color);
+}
+
+.cardBody {
+  padding-top: 1rem;
+}

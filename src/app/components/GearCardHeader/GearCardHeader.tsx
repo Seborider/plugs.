@@ -22,7 +22,7 @@ export default function GearCardHeader({
 }: GearCardHeaderProps): JSX.Element {
   return (
     <header className={style.header}>
-      <div>{IconStateMap[iconType]}</div>;
+      <div>{IconStateMap[iconType]}</div>
       <div>
         <Typography size="m" color="green" children={name} />
       </div>
