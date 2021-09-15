@@ -28,19 +28,19 @@ export default function NavBar({
   };
   return (
     <nav className={`${style.navContainer} ${className}`}>
-      <Link to="" className={style.button}>
+      <Link to="" className={style.link}>
         <SearchIcon {...(selected === 'Search' ? active : inactive)} />
       </Link>
 
-      <Link to="" className={style.button}>
+      <Link to="" className={style.link}>
         <HomeIcon {...(selected === 'Home' ? active : inactive)} />
       </Link>
 
-      <Link to="" className={style.button}>
+      <Link to="" className={style.link}>
         <MixerIcon {...(selected === 'Mixer' ? active : inactive)} />
       </Link>
 
-      <Link to="" className={style.button}>
+      <Link to="" className={style.link}>
         <AddIcon {...(selected === 'Add' ? active : inactive)} />
       </Link>
     </nav>
