@@ -15,6 +15,9 @@ app.get('/api/hello', (_request, response) => {
 app.use('/storybook', express.static('dist/storybook'));
 
 app.use(express.static('dist/app'));
+app.get('*', (_request, response) => {
+  response.sendFile('index.html', { root: 'dist/app' });
+});
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}!`);

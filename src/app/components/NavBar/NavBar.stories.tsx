@@ -12,15 +12,7 @@ export default {
   },
 };
 
-export const NavBarAdd = (): JSX.Element => (
-  <NavBar selected="Add" onTypeClick={console.log} />
-);
-export const NavBarSearch = (): JSX.Element => (
-  <NavBar selected="Search" onTypeClick={console.log} />
-);
-export const NavBarHome = (): JSX.Element => (
-  <NavBar selected="Home" onTypeClick={console.log} />
-);
-export const NavBarMixer = (): JSX.Element => (
-  <NavBar selected="Mixer" onTypeClick={console.log} />
-);
+export const NavBarAdd = (): JSX.Element => <NavBar selected="Add" />;
+export const NavBarSearch = (): JSX.Element => <NavBar selected="Search" />;
+export const NavBarHome = (): JSX.Element => <NavBar selected="Home" />;
+export const NavBarMixer = (): JSX.Element => <NavBar selected="Mixer" />;
