@@ -74,7 +74,7 @@ const GearCardMockData: MockData[] = [
 export default function HomePage(): JSX.Element {
   return (
     <div className={style.pageContainer}>
-      <Header text="Mixer" className={style.header} />
+      <Header withLogo withBurgerButton className={style.header} />
 
       <main className={style.main}>
         {GearCardMockData.map((item) => (
