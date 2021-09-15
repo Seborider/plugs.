@@ -11,6 +11,8 @@
   background-color: var(--primary-light);
   border-radius: 5px;
   border: 1px solid var(--tertiary-accent);
+  width: 90%;
+  margin: 0.5rem;
 }
 
 .header {
