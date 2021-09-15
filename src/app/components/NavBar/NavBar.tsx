@@ -6,15 +6,15 @@ import HomeIcon from '../assets/HomeIcon';
 import MixerIcon from '../assets/MixerIcon';
 import AddIcon from '../assets/AddIcon';
 
-export type NavBarProps = {
+type NavBarProps = {
   selected: 'Search' | 'Home' | 'Mixer' | 'Add';
-  onTypeClick: (type: string) => void;
+
   className?: string;
 };
 
 export default function NavBar({
   selected,
-  onTypeClick,
+
   className,
 }: NavBarProps): JSX.Element {
   const active = {
@@ -28,27 +28,19 @@ export default function NavBar({
   };
   return (
     <nav className={`${style.navContainer} ${className}`}>
-      <Link
-        to=""
-        className={style.button}
-        onChange={() => onTypeClick('Search')}
-      >
+      <Link to="" className={style.button}>
         <SearchIcon {...(selected === 'Search' ? active : inactive)} />
       </Link>
 
-      <Link to="" className={style.button} onChange={() => onTypeClick('Home')}>
+      <Link to="" className={style.button}>
         <HomeIcon {...(selected === 'Home' ? active : inactive)} />
       </Link>
 
-      <Link
-        to=""
-        className={style.button}
-        onChange={() => onTypeClick('Mixer')}
-      >
+      <Link to="" className={style.button}>
         <MixerIcon {...(selected === 'Mixer' ? active : inactive)} />
       </Link>
 
-      <Link to="" className={style.button} onChange={() => onTypeClick('Add')}>
+      <Link to="" className={style.button}>
         <AddIcon {...(selected === 'Add' ? active : inactive)} />
       </Link>
     </nav>
