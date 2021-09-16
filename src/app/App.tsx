@@ -9,8 +9,9 @@ function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/add"></Route>
-        <AddPage />
+        <Route path="/add">
+          <AddPage />
+        </Route>
         <Route path="/search">
           <SearchPage />
         </Route>
