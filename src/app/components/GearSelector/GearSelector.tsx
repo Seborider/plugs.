@@ -6,7 +6,7 @@ import style from './GearSelector.module.css';
 import Typography from '../Typography/Typography';
 
 export type GearSelectorProps = {
-  selected: 'Drum' | 'Effect' | 'Synth';
+  selected?: 'Drum' | 'Effect' | 'Synth';
   onTypeClick: (type: string) => void;
   className?: string;
   withSynth?: boolean;
