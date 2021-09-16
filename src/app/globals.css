@@ -37,6 +37,9 @@
 
 body {
   margin: 0;
+  height: 100%;
   font-family: var(--font-face-regular);
   background: var(--background-gradient);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
