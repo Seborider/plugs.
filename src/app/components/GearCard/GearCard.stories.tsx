@@ -36,7 +36,6 @@ const fiveConnections = [
 export const CardWithOneConnection = (): JSX.Element => (
   <GearCard iconType="Drum" name="808" connections={oneConnections} />
 );
-
 export const CardWithTwoConnections = (): JSX.Element => (
   <GearCard iconType="Drum" name="808" connections={twoConnections} />
 );
