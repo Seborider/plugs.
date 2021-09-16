@@ -1,0 +1,18 @@
+.button {
+  border: none;
+  background: none;
+}
+
+.saveWrapper {
+  display: grid;
+  gap: 0.2rem;
+  justify-content: center;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.line {
+  border-bottom: 1px solid white;
+  width: 10rem;
+  margin-bottom: 0.5rem;
+}
