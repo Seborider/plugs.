@@ -24,6 +24,7 @@
 .line {
   border-bottom: 1px solid white;
   width: 10rem;
+  margin-bottom: 1rem;
 }
 
 .formWrapper {
