@@ -17,21 +17,25 @@
   display: grid;
   gap: 0.2rem;
   justify-content: center;
-  padding-top: 2rem;
+  padding-top: 1rem;
   text-align: center;
 }
 
 .line {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid var(--primary-light);
   width: 10rem;
   margin-bottom: 1rem;
 }
 
 .formWrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  justify-content: space-evenly;
-  padding-top: 1rem;
+  justify-content: space-between;
+  justify-items: center;
+  gap: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .formWrapper input {
@@ -49,6 +53,10 @@
 }
 
 .icon {
-  margin-top: 1rem;
-  margin-left: 0.9rem;
+  display: grid;
+  justify-content: space-evenly;
+  padding-top: 1rem;
+  justify-items: center;
+  align-items: center;
+  padding-bottom: 0.9rem;
 }
