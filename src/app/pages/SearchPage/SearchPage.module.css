@@ -1,0 +1,16 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+.main {
+  display: grid;
+  justify-items: center;
+  margin-top: 4.5rem;
+  margin-bottom: 4.5rem;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
