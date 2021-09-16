@@ -28,7 +28,7 @@ export default function NavBar({
   };
   return (
     <nav className={`${style.navContainer} ${className}`}>
-      <Link to="" className={style.link}>
+      <Link to="/search" className={style.link}>
         <SearchIcon {...(selected === 'Search' ? active : inactive)} />
       </Link>
 
@@ -36,7 +36,7 @@ export default function NavBar({
         <HomeIcon {...(selected === 'Home' ? active : inactive)} />
       </Link>
 
-      <Link to="/Mixer" className={style.link}>
+      <Link to="/mixer" className={style.link}>
         <MixerIcon {...(selected === 'Mixer' ? active : inactive)} />
       </Link>
 
