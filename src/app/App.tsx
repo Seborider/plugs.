@@ -2,11 +2,15 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import MixerPage from './pages/MixerPage/MixerPage';
 import HomePage from './pages/HomePage/HomePage';
+import SearchPage from './pages/SearchPage/SearchPage';
 
 function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/search">
+          <SearchPage />
+        </Route>
         <Route path="/mixer">
           <MixerPage />
         </Route>
