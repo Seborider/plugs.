@@ -6,21 +6,15 @@ import style from './GearSelector.module.css';
 import Typography from '../Typography/Typography';
 
 export type GearSelectorProps = {
-  selected?: 'Drum' | 'Effect' | 'Synth';
-  onTypeClick: (type: string) => void;
+  selected: 'Drum' | 'Effect' | 'Synth';
   className?: string;
-  withSynth?: boolean;
-  withEffect?: boolean;
-  withDrum?: boolean;
+  onChange: (icon: 'Drum' | 'Effect' | 'Synth') => void;
 };
 
 export default function GearSelector({
   selected,
-  onTypeClick,
   className,
-  withSynth,
-  withEffect,
-  withDrum,
+  onChange,
 }: GearSelectorProps): JSX.Element {
   const active = {
     fill: 'var(--primary-accent)',
@@ -31,6 +25,7 @@ export default function GearSelector({
     stroke: 'var(--primary-light)',
     fill: 'var(--primary-light)',
   };
+
   return (
     <section className={style.pageWrapper}>
       <div className={style.typographyWrapper}>
@@ -41,36 +36,45 @@ export default function GearSelector({
       </div>
 
       <form className={`${style.formWrapper} ${className}`}>
-        <label className={`${withSynth ? style.iconBackground : ''}`}>
+        <label
+          className={`${selected === 'Synth' ? style.iconBackground : ''}`}
+        >
           <div className={style.icon}>
             <SynthesizerIcon {...(selected === 'Synth' ? active : inactive)} />
           </div>
           <input
             type="radio"
-            onChange={() => onTypeClick('Synth')}
+            onChange={() => onChange('Synth')}
             name={'GearSelector'}
+            value="Synth"
+            checked={selected === 'Synth'}
           />
         </label>
 
-        <label className={`${withEffect ? style.iconBackground : ''}`}>
+        <label
+          className={`${selected === 'Effect' ? style.iconBackground : ''}`}
+        >
           <div className={style.icon}>
             <EffectIcon {...(selected === 'Effect' ? active : inactive)} />
           </div>
           <input
             type="radio"
-            onChange={() => onTypeClick('Effect')}
+            onChange={() => onChange('Effect')}
             name={'GearSelector'}
+            value="Effect"
+            checked={selected === 'Effect'}
           />
         </label>
-
-        <label className={`${withDrum ? style.iconBackground : ''}`}>
+        <label className={`${selected === 'Drum' ? style.iconBackground : ''}`}>
           <div className={style.icon}>
             <DrumMachineIcon {...(selected === 'Drum' ? active : inactive)} />
           </div>
           <input
             type="radio"
-            onChange={() => onTypeClick('Drum')}
+            onChange={() => onChange('Drum')}
             name={'GearSelector'}
+            value="Drum"
+            checked={selected === 'Drum'}
           />
         </label>
       </form>
