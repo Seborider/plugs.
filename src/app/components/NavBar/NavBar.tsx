@@ -40,7 +40,7 @@ export default function NavBar({
         <MixerIcon {...(selected === 'Mixer' ? active : inactive)} />
       </Link>
 
-      <Link to="" className={style.link}>
+      <Link to="/add" className={style.link}>
         <AddIcon {...(selected === 'Add' ? active : inactive)} />
       </Link>
     </nav>
