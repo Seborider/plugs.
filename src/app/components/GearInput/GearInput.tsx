@@ -8,12 +8,12 @@ export type GearInputProps = {
     | 'MIDI Out to'
     | 'MIDI In from'
     | 'USB Port';
-  value: string;
+  value?: string;
   onClick: (type: boolean) => void;
   onChange: (value: string) => void;
   className?: string;
-  type: string;
-  checked: boolean;
+  type?: string;
+  checked?: boolean;
 };
 
 export default function GearInput({

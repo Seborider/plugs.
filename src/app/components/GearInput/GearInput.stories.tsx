@@ -13,17 +13,37 @@ export default {
 };
 
 export const AddGearOutput = (): JSX.Element => (
-  <GearInput onClick={console.log} placeholder="Output to" />
+  <GearInput
+    onClick={console.log}
+    placeholder="Output to"
+    onChange={console.log}
+  />
 );
 export const AddGearInput = (): JSX.Element => (
-  <GearInput onClick={console.log} placeholder="Input from" />
+  <GearInput
+    onClick={console.log}
+    placeholder="Input from"
+    onChange={console.log}
+  />
 );
 export const AddGearMidiOut = (): JSX.Element => (
-  <GearInput onClick={console.log} placeholder="MIDI Out to" />
+  <GearInput
+    onClick={console.log}
+    placeholder="MIDI Out to"
+    onChange={console.log}
+  />
 );
 export const AddGearMidiIn = (): JSX.Element => (
-  <GearInput onClick={console.log} placeholder="MIDI In from" />
+  <GearInput
+    onClick={console.log}
+    placeholder="MIDI In from"
+    onChange={console.log}
+  />
 );
 export const AddGearUSBPort = (): JSX.Element => (
-  <GearInput onClick={console.log} placeholder="USB Port" />
+  <GearInput
+    onClick={console.log}
+    placeholder="USB Port"
+    onChange={console.log}
+  />
 );
