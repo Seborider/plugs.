@@ -58,9 +58,9 @@ export default function Header({
           <Typography size="l">{text}</Typography>
         </div>
       )}
-      {withInputBar && (
+      {withInputBar && onChange && (
         <div className={styles.inputBar}>
-          <InputBar type={type} value={value} onChange={() => onChange} />
+          <InputBar type={type} value={value} onChange={onChange} />
         </div>
       )}
     </header>
