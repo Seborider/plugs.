@@ -21,11 +21,11 @@
   box-shadow: var(--secondary-light) 3px 3px 6px inset,
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
   width: 100%;
+  padding-left: 1rem;
 }
 
 .input::placeholder {
   color: var(--secondary--font);
-  padding-left: 1rem;
 }
 
 .formWrapper {
