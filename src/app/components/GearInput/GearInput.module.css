@@ -1,7 +1,6 @@
 .container {
   display: flex;
   min-height: 4rem;
-  margin-left: 0.2rem;
   margin-bottom: 0.5rem;
   background-color: var(--primary-light);
   align-items: center;
