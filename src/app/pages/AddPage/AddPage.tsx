@@ -7,11 +7,11 @@ import NavBar from '../../components/NavBar/NavBar';
 import style from './AddPage.module.css';
 
 export default function AddPage(): JSX.Element {
+  const [gearName, setGearName] = useState<string>('');
+
   const [selectedGear, setSelectedGear] = useState<'Drum' | 'Synth' | 'Effect'>(
     'Synth'
   );
-
-  const [gearName, setGearName] = useState('');
 
   const [output, setOutput] = useState<string>('');
   const [isOutputChecked, setIsOutputChecked] = useState(false);
@@ -31,20 +31,23 @@ export default function AddPage(): JSX.Element {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const newGear = {
-      gearName,
-      output,
-      input,
-      midi_in,
-      midi_out,
-      usb,
+      iconType: setSelectedGear,
+      name: gearName,
+      connections: [
+        { channel: output, connection: 'Output to' },
+        { channel: input, connection: 'Input from' },
+        { channel: midi_in, connection: 'MIDI In from' },
+        { channel: midi_out, connection: 'MIDI Out from' },
+        { channel: usb, connection: 'USB Port' },
+      ],
     };
+    console.log(newGear);
   }
-
   return (
     <div className={style.pageContainer}>
       <Header
-        text="Add"
         withInputBar
+        text="Add"
         type="add"
         className={style.header}
         value={gearName}
@@ -93,7 +96,7 @@ export default function AddPage(): JSX.Element {
             onClick={setIsUsbChecked}
             checked={isUsbChecked}
           />
-          <SaveButton text="Save" />
+          <SaveButton text="Save" type="submit" />
         </form>
       </main>
       <nav>
