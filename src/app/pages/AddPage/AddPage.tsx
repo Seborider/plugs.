@@ -34,11 +34,11 @@ export default function AddPage(): JSX.Element {
       iconType: setSelectedGear,
       name: gearName,
       connections: [
-        { channel: output, connection: 'Output to' },
-        { channel: input, connection: 'Input from' },
-        { channel: midi_in, connection: 'MIDI In from' },
-        { channel: midi_out, connection: 'MIDI Out from' },
-        { channel: usb, connection: 'USB Port' },
+        isOutputChecked && { channel: output, connection: 'Output to' },
+        isInputChecked && { channel: input, connection: 'Input from' },
+        isMidi_inChecked && { channel: midi_in, connection: 'MIDI In from' },
+        isMidi_outChecked && { channel: midi_out, connection: 'MIDI Out from' },
+        isUsbChecked && { channel: usb, connection: 'USB Port' },
       ],
     };
     console.log(newGear);
