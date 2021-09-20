@@ -29,7 +29,7 @@ export default function GearInput({
         <input
           checked={checked}
           type="checkbox"
-          onClick={() => onClick(!checked)}
+          onChange={() => onClick(!checked)}
         />
         <span className={`${style.slider} ${style.round}`}></span>
       </label>
