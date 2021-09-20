@@ -6,4 +6,4 @@ export default {
   component: SaveButton,
 };
 
-export const Save = (): JSX.Element => <SaveButton text="Save" />;
+export const Save = (): JSX.Element => <SaveButton text="Save" type="submit" />;

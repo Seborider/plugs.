@@ -4,12 +4,13 @@
   border-radius: 3px;
   font-family: var(--font-face-input);
   color: var(--secondary-light);
-  width: 100%;
+  width: 85%;
   line-height: 2.5rem;
   font-size: 1.5rem;
   box-shadow: var(--secondary-light) 3px 3px 6px inset,
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-  padding-left: 0.5rem;
+  padding-left: 1rem;
+  margin-left: 2.2rem;
 }
 
 .input::placeholder {

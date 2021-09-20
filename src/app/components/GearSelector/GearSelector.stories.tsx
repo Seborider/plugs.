@@ -13,13 +13,13 @@ export default {
 };
 
 export const SelectSynthesizer = (): JSX.Element => (
-  <GearSelector withSynth selected={'Synth'} onTypeClick={console.log} />
+  <GearSelector selected={'Synth'} onChange={console.log} />
 );
 
 export const SelectEffect = (): JSX.Element => (
-  <GearSelector withEffect selected={'Effect'} onTypeClick={console.log} />
+  <GearSelector selected={'Effect'} onChange={console.log} />
 );
 
 export const SelectDrumMachine = (): JSX.Element => (
-  <GearSelector withDrum selected={'Drum'} onTypeClick={console.log} />
+  <GearSelector selected={'Drum'} onChange={console.log} />
 );

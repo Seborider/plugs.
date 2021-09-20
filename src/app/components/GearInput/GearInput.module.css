@@ -1,10 +1,10 @@
 .container {
   display: flex;
   min-height: 4rem;
-  margin-left: 0.2rem;
+  margin-bottom: 0.5rem;
   background-color: var(--primary-light);
   align-items: center;
-  border-top-left-radius: 5px;
+  border-radius: 5px;
   border-bottom-left-radius: 5px;
   padding-left: 1rem;
 }
@@ -20,11 +20,11 @@
   box-shadow: var(--secondary-light) 3px 3px 6px inset,
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
   width: 100%;
+  padding-left: 1rem;
 }
 
 .input::placeholder {
   color: var(--secondary--font);
-  padding-left: 1rem;
 }
 
 .formWrapper {
@@ -48,8 +48,8 @@
   position: absolute;
   cursor: pointer;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 1px;
+  right: -7px;
   bottom: 0;
   background-color: var(--navigation-icon-color);
   -webkit-transition: 0.4s;

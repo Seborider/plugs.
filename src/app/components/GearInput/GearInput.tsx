@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import style from './GearInput.module.css';
 
 export type GearInputProps = {
@@ -8,30 +8,41 @@ export type GearInputProps = {
     | 'MIDI Out to'
     | 'MIDI In from'
     | 'USB Port';
+  value?: string;
   onClick: (type: boolean) => void;
+  onChange: (value: string) => void;
+  className?: string;
+  type?: string;
+  checked?: boolean;
 };
 
 export default function GearInput({
   placeholder,
+  value,
+  onChange,
+  onClick,
+  checked,
 }: GearInputProps): JSX.Element {
-  const [toggle, setToggle] = useState(false);
-
   return (
     <section className={style.container}>
       <label className={style.switch}>
         <input
+          checked={checked}
           type="checkbox"
-          onClick={() => {
-            setToggle(!toggle);
-            console.log(toggle);
-          }}
+          onChange={() => onClick(!checked)}
         />
         <span className={`${style.slider} ${style.round}`}></span>
       </label>
 
-      <form className={style.formWrapper}>
-        <input type="text" placeholder={placeholder} className={style.input} />
-      </form>
+      <div className={style.formWrapper}>
+        <input
+          type="text"
+          placeholder={placeholder}
+          value={value}
+          className={style.input}
+          onChange={(event) => onChange(event.target.value)}
+        />
+      </div>
     </section>
   );
 }
