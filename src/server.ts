@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
 import { addGear } from './app/utils/addGear';
-import type { Gear } from '../../plugs./src/types';
+import type { Gear } from './types';
 import { connectDatabase } from './app/utils/database';
 
 const app = express();
