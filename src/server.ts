@@ -1,19 +1,24 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
-import { addGear } from './app/utils/addGear';
+import { addGear } from './utils/addGear';
 import type { Gear } from './types';
-import { connectDatabase } from './app/utils/database';
+import { connectDatabase } from './utils/database';
 
 const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(express.json());
 
-app.post('/api/gear', async (req, res) => {
-  const gear: Gear = req.body;
+app.post('/api/gear', async (request, response) => {
+  const gear: Gear = request.body;
   await addGear(gear);
-  return res.status(200).send(gear);
+  return response.status(200).send(gear);
+});
+
+app.get('/api/gear', (request, response) => {
+  const gear: Gear = request.body;
+  response.json(gear);
 });
 
 app.get('/api/hello', (_request, response) => {

@@ -1,6 +1,6 @@
 import type { Collection } from 'mongodb';
 import { MongoClient } from 'mongodb';
-import type { Gear } from '../../types';
+import type { Gear } from '../types';
 
 let client: MongoClient;
 
