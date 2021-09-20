@@ -30,6 +30,7 @@ export default function SearchPage(): JSX.Element {
         withInputBar
         type="search"
         className={style.header}
+        onChange={console.log}
       />
       <main className={style.main}>
         {GearCardMockData.map((item) => (
