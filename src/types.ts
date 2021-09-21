@@ -1,11 +1,5 @@
 export type Gear = {
-  iconType: string;
+  iconType: 'Synth' | 'Effect' | 'Drum';
   name: string;
-  connections: [
-    { channel: string; connection: string },
-    { channel: string; connection: string },
-    { channel: string; connection: string },
-    { channel: string; connection: string },
-    { channel: string; connection: string }
-  ];
+  connections: { channel: string; connection: string }[];
 };
