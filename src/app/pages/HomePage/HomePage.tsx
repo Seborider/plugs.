@@ -9,7 +9,6 @@ export default function HomePage(): JSX.Element {
   const [gear, setGear] = useState<Gear[]>([]);
 
   async function fetchGear() {
-    console.log('Hallo Dima');
     const response = await fetch('/api/gear', {
       method: 'GET',
       headers: {
