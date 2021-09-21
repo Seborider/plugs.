@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
-import { addGear } from './utils/addGear';
+import { addGear, readGear } from './utils/gear';
 import type { Gear } from './types';
 import { connectDatabase } from './utils/database';
 
@@ -16,8 +16,8 @@ app.post('/api/gear', async (request, response) => {
   return response.status(200).send(gear);
 });
 
-app.get('/api/gear', (request, response) => {
-  const gear: Gear = request.body;
+app.get('/api/gear', async (_request, response) => {
+  const gear = await readGear();
   response.json(gear);
 });
 
