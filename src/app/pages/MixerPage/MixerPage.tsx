@@ -5,21 +5,6 @@ import MixerCard from '../../components/MixerCard/MixerCard';
 import NavBar from '../../components/NavBar/NavBar';
 import style from './../MixerPage/MixerPage.module.css';
 
-// const MixerCardMockData = [
-//   { gearname: 'Moog Matriarch', channel: '19/20' },
-//   { gearname: 'SH101', channel: '8' },
-//   { gearname: '808', channel: '4' },
-//   { gearname: 'Moog Matriarch', channel: '19/20' },
-//   { gearname: 'SH101', channel: '8' },
-//   { gearname: '808', channel: '4' },
-//   { gearname: 'Moog Matriarch', channel: '19/20' },
-//   { gearname: 'SH101', channel: '8' },
-//   { gearname: '808', channel: '4' },
-//   { gearname: 'Moog Matriarch', channel: '19/20' },
-//   { gearname: 'SH101', channel: '8' },
-//   { gearname: '808', channel: '4' },
-// ];
-
 export default function MixerPage(): JSX.Element {
   const [gear, setGear] = useState<MixerGear[]>([]);
 
