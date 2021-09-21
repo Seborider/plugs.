@@ -1,9 +1,9 @@
-POST http://localhost:3000/api/gear/
+POST http://localhost:3001/api/gear/
 Content-Type: application/json
 
 {
     "iconType": "Drum",
-    "name": "808",
+    "name": "test",
     "connections": 
        [{ "channel": "output", "connection": "'Output to'" },
         { "channel": "input", "connection": "'Input from'" },
@@ -12,3 +12,4 @@ Content-Type: application/json
         { "channel": "usb", "connection": "'USB Port'" }]
         
 }
+
