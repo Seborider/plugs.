@@ -30,16 +30,19 @@ export default function AddPage(): JSX.Element {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const connections = [
+      isOutputChecked ? { channel: output, connection: 'Output to' } : '',
+      isInputChecked ? { channel: input, connection: 'Input from' } : '',
+      isMidi_inChecked ? { channel: midi_in, connection: 'MIDI In from' } : '',
+      isMidi_outChecked
+        ? { channel: midi_out, connection: 'MIDI Out from' }
+        : '',
+      isUsbChecked ? { channel: usb, connection: 'USB Port' } : '',
+    ];
     const newGear = {
-      iconType: setSelectedGear,
+      iconType: selectedGear,
       name: gearName,
-      connections: [
-        isOutputChecked && { channel: output, connection: 'Output to' },
-        isInputChecked && { channel: input, connection: 'Input from' },
-        isMidi_inChecked && { channel: midi_in, connection: 'MIDI In from' },
-        isMidi_outChecked && { channel: midi_out, connection: 'MIDI Out from' },
-        isUsbChecked && { channel: usb, connection: 'USB Port' },
-      ],
+      connections: connections.filter((connection) => connection),
     };
 
     const response = await fetch('/api/gear', {
