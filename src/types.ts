@@ -3,3 +3,8 @@ export type Gear = {
   name: string;
   connections: { channel: string; connection: string }[];
 };
+
+export type MixerGear = {
+  name: string;
+  connections: { channel: string; connection: string }[];
+};
