@@ -5,22 +5,21 @@ import EditIcon from '../assets/EditIcon';
 import style from './GearCardButtonSection.module.css';
 
 type GearCardButtonSectionProps = {
-  onClick: () => void;
+  onDeleteClick: () => Promise<void>;
 };
 
 export default function GearCardButtonSection({
-  onClick,
+  onDeleteClick,
 }: GearCardButtonSectionProps): JSX.Element {
   return (
     <section className={style.container}>
-      <button className={style.button} type="submit" onClick={onClick}>
+      <button className={style.button} type="submit" onClick={onDeleteClick}>
         <DeleteIcon fill="var(--primary-accent)" />
       </button>
-      <div>
-        <Link to="">
-          <EditIcon stroke="var(--primary-accent)" />
-        </Link>
-      </div>
+
+      <Link to="">
+        <EditIcon stroke="var(--primary-accent)" />
+      </Link>
     </section>
   );
 }
