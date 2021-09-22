@@ -21,10 +21,11 @@ app.get('/api/gear', async (_request, response) => {
   response.json(gear);
 });
 
-// app.delete('/api/gear/:name', async (request, response) => {
-//   const name = request.params;
-//   await deleteGear, response.status(200).send('Deleted');
-// });
+app.delete('/api/gear/:name', async (request, response) => {
+  const { name } = request.params;
+  await deleteGear(name);
+  response.status(200).send('Deleted');
+});
 
 app.get('/api/hello', (_request, response) => {
   response.json({ message: 'Hello API!' });
