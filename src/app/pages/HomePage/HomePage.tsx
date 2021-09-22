@@ -4,7 +4,6 @@ import GearCard from '../../components/GearCard/GearCard';
 import NavBar from '../../components/NavBar/NavBar';
 import type { Gear } from '../../../types';
 import style from './HomePage.module.css';
-import { deleteGear } from '../../../utils/gear';
 
 export default function HomePage(): JSX.Element {
   const [gear, setGear] = useState<Gear[]>([]);
@@ -20,9 +19,12 @@ export default function HomePage(): JSX.Element {
     setGear(gear);
   }
 
-  // async function handleDeleteClick() {
-  //   deleteGear;
-  // }
+  async function deleteGear(name: string) {
+    await fetch(`/api/gear/${name}`, {
+      method: 'DELETE',
+    });
+    fetchGear();
+  }
 
   useEffect(() => {
     fetchGear();
@@ -38,7 +40,7 @@ export default function HomePage(): JSX.Element {
             iconType={item.iconType}
             name={item.name}
             connections={item.connections}
-            // onDeleteClick={handleDeleteClick}
+            onDeleteClick={() => deleteGear(item.name)}
           />
         ))}
       </main>
