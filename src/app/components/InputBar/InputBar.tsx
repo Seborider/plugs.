@@ -5,15 +5,17 @@ export type InputBarProps = {
   type?: 'search' | 'add';
   value?: string;
   onChange: (value: string) => void;
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 };
 
 export default function InputBar({
   type,
   value,
   onChange,
+  onSubmit,
 }: InputBarProps): JSX.Element {
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <input
         type={type === 'search' ? 'search' : 'text'}
         placeholder={type === 'search' ? 'search' : 'add gear'}
