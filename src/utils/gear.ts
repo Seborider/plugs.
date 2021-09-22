@@ -16,3 +16,9 @@ export async function deleteGear(name: string): Promise<void> {
   const gearCollection = getGearCollection();
   await gearCollection.deleteOne({ name });
 }
+
+export async function findGear(searchName: string): Promise<Gear[]> {
+  const gearCollection = getGearCollection();
+  const gear = gearCollection.find({ name: searchName }).toArray();
+  return gear;
+}
