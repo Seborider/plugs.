@@ -5,24 +5,6 @@ import NavBar from '../../components/NavBar/NavBar';
 import style from './SearchPage.module.css';
 import type { Gear } from '../../../types';
 
-type MockData = {
-  iconType: 'Synth' | 'Effect' | 'Drum';
-  name: string;
-  connections: { channel: string; connection: string }[];
-};
-
-const GearCardMockData: MockData[] = [
-  {
-    iconType: 'Drum',
-    name: '!!!PLACEHOLDER!!!',
-    connections: [
-      { channel: 'Channel 3', connection: 'Output to' },
-      { channel: 'MacBook', connection: 'MIDI from' },
-      { channel: 'Port 13', connection: 'USB Port' },
-    ],
-  },
-];
-
 export default function SearchPage(): JSX.Element {
   const [results, setResults] = useState<Gear[]>([]);
 
