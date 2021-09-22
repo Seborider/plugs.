@@ -17,12 +17,6 @@ export default function GearCard({
   connections,
   onDeleteClick,
 }: GearCardProps): JSX.Element {
-  // async function deleteItem(name: string) {
-  //   await fetch(`/api/credential/${name}`, {
-  //     method: 'DELETE',
-  //   });
-  // }
-
   return (
     <article className={style.card}>
       <div className={style.cardWrapper}>
@@ -37,7 +31,7 @@ export default function GearCard({
             />
           ))}
         </div>
-        <GearCardButtonSection onClick={() => onDeleteClick()} />
+        <GearCardButtonSection onDeleteClick={onDeleteClick} />
       </div>
     </article>
   );
