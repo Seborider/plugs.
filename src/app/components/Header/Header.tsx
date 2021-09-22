@@ -18,6 +18,7 @@ type HeaderProps = {
   isHighlighted?: boolean;
   value?: string;
   onChange?: (value: string) => void;
+  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
 };
 
 export default function Header({
@@ -31,6 +32,7 @@ export default function Header({
   isHighlighted,
   value,
   onChange,
+  onSubmit,
 }: HeaderProps): JSX.Element {
   return (
     <header
@@ -58,9 +60,14 @@ export default function Header({
           <Typography size="l">{text}</Typography>
         </div>
       )}
-      {withInputBar && onChange && (
+      {withInputBar && onChange && onSubmit && (
         <div className={styles.inputBar}>
-          <InputBar type={type} value={value} onChange={onChange} />
+          <InputBar
+            type={type}
+            value={value}
+            onChange={onChange}
+            onSubmit={onSubmit}
+          />
         </div>
       )}
     </header>
