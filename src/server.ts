@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
-import { addGear, readGear } from './utils/gear';
+import { addGear, readGear, deleteGear } from './utils/gear';
 import type { Gear } from './types';
 import { connectDatabase } from './utils/database';
 
@@ -20,6 +20,11 @@ app.get('/api/gear', async (_request, response) => {
   const gear = await readGear();
   response.json(gear);
 });
+
+// app.delete('/api/gear/:name', async (request, response) => {
+//   const name = request.params;
+//   await deleteGear, response.status(200).send('Deleted');
+// });
 
 app.get('/api/hello', (_request, response) => {
   response.json({ message: 'Hello API!' });
