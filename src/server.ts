@@ -21,9 +21,13 @@ app.get('/api/gear', async (_request, response) => {
   response.json(gear);
 });
 
-app.get('/api/gear/:name', async (request, response) => {
-  const { name } = request.params;
-  const gear = await findGear(name);
+app.get('/api/gear/search', async (request, response) => {
+  const { query } = request.query;
+  if (!query || typeof query !== 'string') {
+    response.status(400).send();
+    return;
+  }
+  const gear = await findGear(query);
   response.json(gear);
 });
 
