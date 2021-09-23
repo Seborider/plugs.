@@ -3,18 +3,14 @@ import Header from '../../components/Header/Header';
 import GearCard from '../../components/GearCard/GearCard';
 import NavBar from '../../components/NavBar/NavBar';
 import style from './SearchPage.module.css';
-import type { Gear } from '../../../types';
+import useSearch from '../../hooks/useSearch';
 
 export default function SearchPage(): JSX.Element {
-  const [results, setResults] = useState<Gear[]>([]);
+  const [searchValue, setSearchValue] = useState<string>('');
+  const { gear } = useSearch(searchValue);
 
-  async function handleSubmit(
-    event: React.FormEvent<HTMLFormElement>
-  ): Promise<void> {
-    event.preventDefault();
-    const response = await fetch(`/api/gear/${name}`);
-    const result = await response.json();
-    setResults(result);
+  function handleChange(value: string) {
+    setSearchValue(value);
   }
 
   async function deleteGear(name: string) {
@@ -30,21 +26,22 @@ export default function SearchPage(): JSX.Element {
         withInputBar
         type="search"
         className={style.header}
-        onChange={console.log}
-        onSubmit={handleSubmit}
+        onChange={handleChange}
+        value={searchValue}
       />
 
-      <main className={style.main}>
-        {results.map((item) => (
-          <GearCard
-            iconType={item.iconType}
-            name={item.name}
-            connections={item.connections}
-            onDeleteClick={() => deleteGear(item.name)}
-            // key={item._id}
-          />
-        ))}
-      </main>
+      {gear && (
+        <main className={style.main}>
+          {gear.map((singleGear) => (
+            <GearCard
+              iconType={singleGear.iconType}
+              name={singleGear.name}
+              connections={singleGear.connections}
+              onDeleteClick={() => deleteGear(singleGear.name)}
+            />
+          ))}
+        </main>
+      )}
       <NavBar selected="Search" />
     </div>
   );
