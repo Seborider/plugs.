@@ -17,8 +17,10 @@ export async function deleteGear(name: string): Promise<void> {
   await gearCollection.deleteOne({ name });
 }
 
-export async function findGear(searchName: string): Promise<Gear[]> {
+export async function findGear(searchName: string): Promise<Gear[] | null> {
   const gearCollection = getGearCollection();
-  const gear = gearCollection.find({ name: searchName }).toArray();
-  return gear;
+  const result = await gearCollection
+    .find<Gear>({ name: { $regex: new RegExp(searchName, 'i') } })
+    .toArray();
+  return result;
 }
