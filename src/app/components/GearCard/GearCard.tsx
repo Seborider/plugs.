@@ -9,6 +9,7 @@ type GearCardProps = {
   name: string;
   connections: { channel: string; connection: string }[];
   onDeleteClick: () => Promise<void>;
+  value?: string;
 };
 
 export default function GearCard({
