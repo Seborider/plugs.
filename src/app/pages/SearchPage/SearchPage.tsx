@@ -39,6 +39,7 @@ export default function SearchPage(): JSX.Element {
               name={singleGear.name}
               connections={singleGear.connections}
               onDeleteClick={() => deleteGear(singleGear.name)}
+              key={singleGear.name}
             />
           ))}
         </main>

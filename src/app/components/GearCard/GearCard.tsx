@@ -10,6 +10,7 @@ type GearCardProps = {
   connections: { channel: string; connection: string }[];
   onDeleteClick?: () => Promise<void>;
   value?: string;
+  key?: string;
 };
 
 export default function GearCard({
@@ -17,12 +18,13 @@ export default function GearCard({
   name,
   connections,
   onDeleteClick,
+  key,
 }: GearCardProps): JSX.Element {
   return (
     <article className={style.card}>
       <div className={style.cardWrapper}>
         <div className={style.header}>
-          <GearCardHeader iconType={iconType} name={name} />
+          <GearCardHeader iconType={iconType} name={name} key={name} />
         </div>
         <div className={style.cardBody}>
           {connections.map((connection) => (

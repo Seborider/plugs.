@@ -27,6 +27,7 @@ export default function HomePage(): JSX.Element {
               name={item.name}
               connections={item.connections}
               onDeleteClick={() => deleteGear(item.name)}
+              key={item.name}
             />
           ))}
       </main>
