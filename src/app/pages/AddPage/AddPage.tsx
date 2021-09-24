@@ -52,7 +52,7 @@ export default function AddPage(): JSX.Element {
       },
       body: JSON.stringify(newGear),
     });
-    console.log(await response.json());
+    await response.json();
   }
   return (
     <div className={style.pageContainer}>
