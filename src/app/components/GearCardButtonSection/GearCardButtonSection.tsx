@@ -17,7 +17,7 @@ export default function GearCardButtonSection({
         <DeleteIcon fill="var(--primary-accent)" />
       </button>
 
-      <Link to="">
+      <Link to="/edit">
         <EditIcon stroke="var(--primary-accent)" />
       </Link>
     </section>
