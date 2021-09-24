@@ -1,39 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import type { MixerGear } from '../../../types';
 import Header from '../../components/Header/Header';
 import MixerCard from '../../components/MixerCard/MixerCard';
 import NavBar from '../../components/NavBar/NavBar';
+import useFetch from '../../hooks/useFetch';
 import style from './../MixerPage/MixerPage.module.css';
 
 export default function MixerPage(): JSX.Element {
-  const [gear, setGear] = useState<MixerGear[]>([]);
-
-  async function fetchGear() {
-    const response = await fetch('/api/gear', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const gear = await response.json();
-    setGear(gear);
-  }
-
-  useEffect(() => {
-    fetchGear();
-  }, []);
+  const { data: gear } = useFetch<MixerGear[]>('/api/gear');
 
   return (
     <div className={style.pageContainer}>
       <Header text="Mixer" className={style.header} />
 
       <main className={style.main}>
-        {gear.map((item) => (
-          <MixerCard
-            name={item.name}
-            connection={item.connections[0]?.channel}
-          />
-        ))}
+        {gear &&
+          gear.map((item) => (
+            <MixerCard
+              name={item.name}
+              connection={item.connections[0]?.channel}
+              key={item.name}
+            />
+          ))}
       </main>
       <nav>
         <NavBar selected="Mixer" />
