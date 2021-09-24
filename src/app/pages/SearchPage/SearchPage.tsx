@@ -17,6 +17,7 @@ export default function SearchPage(): JSX.Element {
     await fetch(`/api/gear/${name}`, {
       method: 'DELETE',
     });
+    setSearchValue('');
   }
 
   return (
