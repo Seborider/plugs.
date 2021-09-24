@@ -6,6 +6,4 @@ export default {
   component: GearCardButtonSection,
 };
 
-export const ButtonSection = (): JSX.Element => (
-  <GearCardButtonSection onClick={console.log} />
-);
+export const ButtonSection = (): JSX.Element => <GearCardButtonSection />;
