@@ -1,0 +1,15 @@
+POST http://localhost:3001/api/gear/
+Content-Type: application/json
+
+{
+    "iconType": "Drum",
+    "name": "test",
+    "connections": 
+       [{ "channel": "output", "connection": "'Output to'" },
+        { "channel": "input", "connection": "'Input from'" },
+        { "channel": "midi_in", "connection": "'MIDI In from'" },
+        { "channel": "midi_out", "connection": "'MIDI Out from'" },
+        { "channel": "usb", "connection": "'USB Port'" }]
+        
+}
+

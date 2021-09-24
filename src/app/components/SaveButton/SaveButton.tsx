@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import SaveIcon from '../assets/SaveIcon';
 import Typography from '../Typography/Typography';
 import style from './SaveButton.module.css';
@@ -19,11 +18,9 @@ export default function SaveButton({
         {text}
       </Typography>
       <div className={style.line}></div>
-      {/* <Link to="/"> */}
       <button className={style.button} type={type}>
         <SaveIcon fill={'var(--primary-light)'} />
       </button>
-      {/* </Link> */}
     </div>
   );
 }

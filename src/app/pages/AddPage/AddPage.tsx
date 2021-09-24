@@ -28,20 +28,31 @@ export default function AddPage(): JSX.Element {
   const [usb, setUsb] = useState<string>('');
   const [isUsbChecked, setIsUsbChecked] = useState(false);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const connections = [
+      isOutputChecked ? { channel: output, connection: 'Output to' } : '',
+      isInputChecked ? { channel: input, connection: 'Input from' } : '',
+      isMidi_inChecked ? { channel: midi_in, connection: 'MIDI In from' } : '',
+      isMidi_outChecked
+        ? { channel: midi_out, connection: 'MIDI Out from' }
+        : '',
+      isUsbChecked ? { channel: usb, connection: 'USB Port' } : '',
+    ];
     const newGear = {
-      iconType: setSelectedGear,
+      iconType: selectedGear,
       name: gearName,
-      connections: [
-        isOutputChecked && { channel: output, connection: 'Output to' },
-        isInputChecked && { channel: input, connection: 'Input from' },
-        isMidi_inChecked && { channel: midi_in, connection: 'MIDI In from' },
-        isMidi_outChecked && { channel: midi_out, connection: 'MIDI Out from' },
-        isUsbChecked && { channel: usb, connection: 'USB Port' },
-      ],
+      connections: connections.filter((connection) => connection),
     };
-    console.log(newGear);
+
+    const response = await fetch('/api/gear', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newGear),
+    });
+    await response.json();
   }
   return (
     <div className={style.pageContainer}>

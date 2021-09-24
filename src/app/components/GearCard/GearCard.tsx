@@ -1,6 +1,6 @@
 import React from 'react';
 import GearCardHeader from '../GearCardHeader/GearCardHeader';
-import GearCardButtonSection from '../GearCardEdit/GearCardEdit';
+import GearCardButtonSection from '../GearCardButtonSection/GearCardButtonSection';
 import GearCardConnection from '../GearCardConnection/GearCardConnection';
 import style from './GearCard.module.css';
 
@@ -8,12 +8,15 @@ type GearCardProps = {
   iconType: 'Synth' | 'Effect' | 'Drum';
   name: string;
   connections: { channel: string; connection: string }[];
+  onDeleteClick?: () => Promise<void>;
+  value?: string;
 };
 
 export default function GearCard({
   iconType,
   name,
   connections,
+  onDeleteClick,
 }: GearCardProps): JSX.Element {
   return (
     <article className={style.card}>
@@ -26,10 +29,11 @@ export default function GearCard({
             <GearCardConnection
               connection={connection.connection}
               channel={connection.channel}
+              key={name}
             />
           ))}
         </div>
-        <GearCardButtonSection />
+        <GearCardButtonSection onDeleteClick={onDeleteClick} />
       </div>
     </article>
   );

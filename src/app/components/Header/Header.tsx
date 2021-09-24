@@ -18,6 +18,7 @@ type HeaderProps = {
   isHighlighted?: boolean;
   value?: string;
   onChange?: (value: string) => void;
+  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
 };
 
 export default function Header({

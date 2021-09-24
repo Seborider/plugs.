@@ -1,5 +1,5 @@
 import React from 'react';
-import GearCardButtonSection from './GearCardEdit';
+import GearCardButtonSection from './GearCardButtonSection';
 
 export default {
   title: 'Component/GearCardButtonSection',
