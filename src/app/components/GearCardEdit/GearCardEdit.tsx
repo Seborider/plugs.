@@ -13,7 +13,7 @@ export default function GearCardButtonSection(): JSX.Element {
         </Link>
       </div>
       <div>
-        <Link to="">
+        <Link to="/edit">
           <EditIcon stroke="var(--primary-accent)" />
         </Link>
       </div>
