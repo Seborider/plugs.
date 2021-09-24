@@ -27,18 +27,6 @@ export default function EditPage(): JSX.Element {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const newGear = {
-      iconType: setSelectedGear,
-      name: gearName,
-      connections: [
-        isOutputChecked && { channel: output, connection: 'Output to' },
-        isInputChecked && { channel: input, connection: 'Input from' },
-        isMidi_inChecked && { channel: midi_in, connection: 'MIDI In from' },
-        isMidi_outChecked && { channel: midi_out, connection: 'MIDI Out from' },
-        isUsbChecked && { channel: usb, connection: 'USB Port' },
-      ],
-    };
-    console.log(newGear);
   }
   return (
     <div className={style.pageContainer}>
