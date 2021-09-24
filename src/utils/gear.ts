@@ -24,3 +24,8 @@ export async function findGear(searchName: string): Promise<Gear[] | null> {
     .toArray();
   return result;
 }
+
+export async function editGear(name: string, gear: Gear): Promise<void> {
+  const gearCollection = getGearCollection();
+  await gearCollection.updateOne({ name }, { $set: gear });
+}
