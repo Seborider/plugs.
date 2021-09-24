@@ -13,5 +13,5 @@ export default {
 };
 
 export const MixCard = (): JSX.Element => (
-  <MixerCard gearname="Moog" channel="2" />
+  <MixerCard name="Moog" connection="2" />
 );

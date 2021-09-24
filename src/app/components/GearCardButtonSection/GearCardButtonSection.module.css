@@ -3,3 +3,9 @@
   justify-content: space-between;
   padding-top: 1rem;
 }
+
+.button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
