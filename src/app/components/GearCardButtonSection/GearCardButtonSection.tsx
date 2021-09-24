@@ -5,7 +5,7 @@ import EditIcon from '../assets/EditIcon';
 import style from './GearCardButtonSection.module.css';
 
 type GearCardButtonSectionProps = {
-  onDeleteClick: () => Promise<void>;
+  onDeleteClick?: () => Promise<void>;
 };
 
 export default function GearCardButtonSection({

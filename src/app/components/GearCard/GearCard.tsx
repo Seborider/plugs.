@@ -8,7 +8,7 @@ type GearCardProps = {
   iconType: 'Synth' | 'Effect' | 'Drum';
   name: string;
   connections: { channel: string; connection: string }[];
-  onDeleteClick: () => Promise<void>;
+  onDeleteClick?: () => Promise<void>;
   value?: string;
 };
 
