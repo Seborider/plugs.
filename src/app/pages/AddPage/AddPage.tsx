@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import GearSelector from '../../components/GearSelector/GearSelector';
 import GearInput from '../../components/GearInput/GearInput';
@@ -7,6 +8,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import style from './AddPage.module.css';
 
 export default function AddPage(): JSX.Element {
+  const history = useHistory();
   const [gearName, setGearName] = useState<string>('');
 
   const [selectedGear, setSelectedGear] = useState<'Drum' | 'Synth' | 'Effect'>(
@@ -30,6 +32,7 @@ export default function AddPage(): JSX.Element {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
     const connections = [
       isOutputChecked ? { channel: output, connection: 'Output to' } : '',
       isInputChecked ? { channel: input, connection: 'Input from' } : '',
@@ -39,6 +42,7 @@ export default function AddPage(): JSX.Element {
         : '',
       isUsbChecked ? { channel: usb, connection: 'USB Port' } : '',
     ];
+
     const newGear = {
       iconType: selectedGear,
       name: gearName,
@@ -53,7 +57,9 @@ export default function AddPage(): JSX.Element {
       body: JSON.stringify(newGear),
     });
     await response.json();
+    history.push('/');
   }
+
   return (
     <div className={style.pageContainer}>
       <Header
