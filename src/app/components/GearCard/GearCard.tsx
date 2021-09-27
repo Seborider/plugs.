@@ -33,7 +33,7 @@ export default function GearCard({
             />
           ))}
         </div>
-        <GearCardButtonSection onDeleteClick={onDeleteClick} />
+        <GearCardButtonSection onDeleteClick={onDeleteClick} name={name} />
       </div>
     </article>
   );
