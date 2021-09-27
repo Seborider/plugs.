@@ -12,6 +12,12 @@ export async function readGear(): Promise<Gear[]> {
   return gear;
 }
 
+export async function readSingleGear(name: string): Promise<Gear | null> {
+  const gearCollection = getGearCollection();
+  const singleGear = await gearCollection.findOne({ name });
+  return singleGear;
+}
+
 export async function deleteGear(name: string): Promise<void> {
   const gearCollection = getGearCollection();
   await gearCollection.deleteOne({ name });
