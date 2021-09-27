@@ -10,7 +10,7 @@ function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/edit">
+        <Route path="/edit/:name">
           <EditPage />
         </Route>
         <Route path="/add">
