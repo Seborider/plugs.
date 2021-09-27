@@ -4,6 +4,7 @@ import express from 'express';
 import {
   addGear,
   readGear,
+  readSingleGear,
   deleteGear,
   findGear,
   editGear,
@@ -24,6 +25,12 @@ app.post('/api/gear', async (request, response) => {
 
 app.get('/api/gear', async (_request, response) => {
   const gear = await readGear();
+  response.json(gear);
+});
+
+app.get('/api/gear/:name', async (request, response) => {
+  const { name } = request.params;
+  const gear = await readSingleGear(name);
   response.json(gear);
 });
 
