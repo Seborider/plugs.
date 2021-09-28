@@ -20,6 +20,7 @@
 :root {
   --primary-accent: #f25f5c;
   --secondary-accent: #3c6e71;
+  --modal-gradient: #3c6e71e5;
   --tertiary-accent: #bfdbf7;
   --background-gradient: linear-gradient(
     170deg,
