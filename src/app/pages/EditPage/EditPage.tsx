@@ -13,7 +13,6 @@ export default function EditPage(): JSX.Element {
   const params = useParams<{ name: string }>();
 
   const { data: gear, isLoading } = useFetch<Gear>(`/api/gear/${params.name}`);
-  // console.log(gear);
 
   const [selectedGear, setSelectedGear] = useState<'Drum' | 'Synth' | 'Effect'>(
     'Synth'
@@ -38,6 +37,7 @@ export default function EditPage(): JSX.Element {
 
   useEffect(() => {
     if (gear) {
+      setSelectedGear(gear.iconType);
       setIsOutputChecked(gear.connections[0] ? true : false);
       setIsInputChecked(gear.connections[1] ? true : false);
       setIsMidi_inChecked(gear.connections[2] ? true : false);
@@ -64,7 +64,7 @@ export default function EditPage(): JSX.Element {
       connections: connections.filter((connection) => connection),
     };
 
-    const response = await fetch(`/api/gear/${name}`, {
+    const response = await fetch(`/api/gear/${params.name}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -75,17 +75,18 @@ export default function EditPage(): JSX.Element {
     history.push('/');
   }
 
+  function goBack() {
+    history.push('/');
+  }
+
   return (
     <div className={style.pageContainer}>
-      <Header withBackButton text="Edit" />
+      <Header withBackButton text="Edit" onClick={goBack} />
 
       <main className={style.main}>
         {!isLoading && gear && (
           <>
-            <GearSelector
-              selected={selectedGear ? gear?.iconType : ''}
-              onChange={setSelectedGear}
-            />
+            <GearSelector selected={selectedGear} onChange={setSelectedGear} />
             <form onSubmit={(event) => handleSubmit(event)}>
               <GearInput
                 type="text"
