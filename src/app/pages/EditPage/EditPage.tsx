@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import GearSelector from '../../components/GearSelector/GearSelector';
 import GearInput from '../../components/GearInput/GearInput';
@@ -9,28 +9,17 @@ import useFetch from '../../hooks/useFetch';
 import type { Gear } from '../../../types';
 
 export default function EditPage(): JSX.Element {
+  const history = useHistory();
   const params = useParams<{ name: string }>();
 
   const { data: gear, isLoading } = useFetch<Gear>(`/api/gear/${params.name}`);
   // console.log(gear);
-
-  // async function editGear(name: string) {
-  //   const test = await fetch(`/api/gear/${name}`, {
-  //     method: 'PATCH',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(editGear),
-  //   });
-  //   console.log(test);
-  // }
 
   const [selectedGear, setSelectedGear] = useState<'Drum' | 'Synth' | 'Effect'>(
     'Synth'
   );
 
   const [output, setOutput] = useState<string>('');
-
   const [isOutputChecked, setIsOutputChecked] = useState(false);
 
   const [input, setInput] = useState<string>('');
@@ -43,25 +32,49 @@ export default function EditPage(): JSX.Element {
   const [isMidi_outChecked, setIsMidi_outChecked] = useState(false);
 
   const [usb, setUsb] = useState<string>('');
-  const [isUsbChecked, setIsUsbChecked] = useState(false);
+  const [isUsbChecked, setIsUsbChecked] = useState(
+    gear && gear.connections[4] ? true : false
+  );
 
-  // function test(event) {
-  //   setIsOutputChecked(!isOutputChecked);
-  // }
-  // console.log(event);
+  useEffect(() => {
+    if (gear) {
+      setIsOutputChecked(gear.connections[0] ? true : false);
+      setIsInputChecked(gear.connections[1] ? true : false);
+      setIsMidi_inChecked(gear.connections[2] ? true : false);
+      setIsMidi_outChecked(gear.connections[3] ? true : false);
+      setIsUsbChecked(gear.connections[4] ? true : false);
+    }
+  }, [gear]);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    // const connections = [
-    //   isOutputChecked ? { channel: output, connection: 'Output to' } : '',
-    //   isInputChecked ? { channel: input, connection: 'Input from' } : '',
-    //   isMidi_inChecked ? { channel: midi_in, connection: 'MIDI In from' } : '',
-    //   isMidi_outChecked
-    //     ? { channel: midi_out, connection: 'MIDI Out from' }
-    //     : '',
-    //   isUsbChecked ? { channel: usb, connection: 'USB Port' } : '',
-    // ];
+
+    const connections = [
+      isOutputChecked ? { channel: output, connection: 'Output to' } : '',
+      isInputChecked ? { channel: input, connection: 'Input from' } : '',
+      isMidi_inChecked ? { channel: midi_in, connection: 'MIDI In from' } : '',
+      isMidi_outChecked
+        ? { channel: midi_out, connection: 'MIDI Out from' }
+        : '',
+      isUsbChecked ? { channel: usb, connection: 'USB Port' } : '',
+    ];
+
+    const editGear = {
+      iconType: selectedGear,
+      connections: connections.filter((connection) => connection),
+    };
+
+    const response = await fetch(`/api/gear/${name}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(editGear),
+    });
+    await response.json();
+    history.push('/');
   }
+
   return (
     <div className={style.pageContainer}>
       <Header withBackButton text="Edit" />
@@ -81,8 +94,8 @@ export default function EditPage(): JSX.Element {
                 }
                 value={output}
                 onChange={setOutput}
-                onClick={(event) => test(event)}
-                checked={gear.connections[0] ? true : false}
+                onClick={() => setIsOutputChecked(!isOutputChecked)}
+                checked={isOutputChecked}
               />
               <GearInput
                 type="text"
@@ -93,8 +106,8 @@ export default function EditPage(): JSX.Element {
                 }
                 value={input}
                 onChange={setInput}
-                onClick={setIsInputChecked}
-                checked={gear.connections[1] ? true : false}
+                onClick={() => setIsInputChecked(!isInputChecked)}
+                checked={isInputChecked}
               />
               <GearInput
                 type="text"
@@ -105,8 +118,8 @@ export default function EditPage(): JSX.Element {
                 }
                 value={midi_in}
                 onChange={setMidi_in}
-                onClick={setIsMidi_inChecked}
-                checked={gear.connections[2] ? true : false}
+                onClick={() => setIsMidi_inChecked(!isMidi_inChecked)}
+                checked={isMidi_inChecked}
               />
               <GearInput
                 type="text"
@@ -117,8 +130,8 @@ export default function EditPage(): JSX.Element {
                 }
                 value={midi_out}
                 onChange={setMidi_out}
-                onClick={setIsMidi_outChecked}
-                checked={gear.connections[3] ? true : false}
+                onClick={() => setIsMidi_outChecked(!isMidi_outChecked)}
+                checked={isMidi_outChecked}
               />
               <GearInput
                 type="text"
@@ -129,8 +142,8 @@ export default function EditPage(): JSX.Element {
                 }
                 value={usb}
                 onChange={setUsb}
-                onClick={setIsUsbChecked}
-                checked={gear.connections[4] ? true : false}
+                onClick={() => setIsUsbChecked(!isUsbChecked)}
+                checked={isUsbChecked}
               />
               <SaveButton text="Save" type="submit" />
             </form>
