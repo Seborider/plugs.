@@ -45,19 +45,10 @@ export default function EditPage(): JSX.Element {
   const [usb, setUsb] = useState<string>('');
   const [isUsbChecked, setIsUsbChecked] = useState(false);
 
-  // if (!isLoading && gear) {
-  //   const outputCheckedfromStart = gear.connections[0] ? true : false;
-  //   console.log(outputCheckedfromStart);
-  //   setIsInputChecked(gear.connections[1] ? true : false);
-  //   setIsMidi_inChecked(gear.connections[2] ? true : false);
-  //   setIsMidi_outChecked(gear.connections[3] ? true : false);
-  //   setIsUsbChecked(gear.connections[4] ? true : false);
+  // function test(event) {
+  //   setIsOutputChecked(!isOutputChecked);
   // }
-
-  function test(event) {
-    setIsOutputChecked(!isOutputChecked);
-  }
-  console.log(event);
+  // console.log(event);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -74,75 +65,77 @@ export default function EditPage(): JSX.Element {
   return (
     <div className={style.pageContainer}>
       <Header withBackButton text="Edit" />
+
       <main className={style.main}>
-        <GearSelector
-          selected={selectedGear ? gear?.iconType : ''}
-          onChange={setSelectedGear}
-        />
-        <form onSubmit={(event) => handleSubmit(event)}>
-          <GearInput
-            type="text"
-            placeholder={
-              gear && gear ? gear?.connections[0].channel : 'Output to'
-            }
-            value={output}
-            onChange={setOutput}
-            onClick={(event) => test(event)}
-            checked={
-              !isLoading && gear ? (gear.connections[0] ? true : false) : false
-            }
-            // defaultChecked={true}
-          />
-          <GearInput
-            type="text"
-            placeholder={
-              gear && gear?.connections[1]
-                ? gear?.connections[1].channel
-                : 'Input from'
-            }
-            value={input}
-            onChange={setInput}
-            onClick={setIsInputChecked}
-            checked={isInputChecked}
-          />
-          <GearInput
-            type="text"
-            placeholder={
-              gear && gear?.connections[2]
-                ? gear?.connections[2].channel
-                : 'MIDI In from'
-            }
-            value={midi_in}
-            onChange={setMidi_in}
-            onClick={setIsMidi_inChecked}
-            checked={isMidi_inChecked}
-          />
-          <GearInput
-            type="text"
-            placeholder={
-              gear && gear?.connections[3]
-                ? gear?.connections[3].channel
-                : 'MIDI Out to'
-            }
-            value={midi_out}
-            onChange={setMidi_out}
-            onClick={setIsMidi_outChecked}
-            checked={isMidi_outChecked}
-          />
-          <GearInput
-            type="text"
-            placeholder={
-              gear && gear?.connections[4]
-                ? gear?.connections[4].channel
-                : 'USB Port'
-            }
-            value={usb}
-            onChange={setUsb}
-            onClick={setIsUsbChecked}
-            checked={isUsbChecked}
-          />
-          <SaveButton text="Save" type="submit" />
-        </form>
+        {!isLoading && gear && (
+          <>
+            <GearSelector
+              selected={selectedGear ? gear?.iconType : ''}
+              onChange={setSelectedGear}
+            />
+            <form onSubmit={(event) => handleSubmit(event)}>
+              <GearInput
+                type="text"
+                placeholder={
+                  gear && gear ? gear?.connections[0].channel : 'Output to'
+                }
+                value={output}
+                onChange={setOutput}
+                onClick={(event) => test(event)}
+                checked={gear.connections[0] ? true : false}
+              />
+              <GearInput
+                type="text"
+                placeholder={
+                  gear && gear?.connections[1]
+                    ? gear?.connections[1].channel
+                    : 'Input from'
+                }
+                value={input}
+                onChange={setInput}
+                onClick={setIsInputChecked}
+                checked={gear.connections[1] ? true : false}
+              />
+              <GearInput
+                type="text"
+                placeholder={
+                  gear && gear?.connections[2]
+                    ? gear?.connections[2].channel
+                    : 'MIDI In from'
+                }
+                value={midi_in}
+                onChange={setMidi_in}
+                onClick={setIsMidi_inChecked}
+                checked={gear.connections[2] ? true : false}
+              />
+              <GearInput
+                type="text"
+                placeholder={
+                  gear && gear?.connections[3]
+                    ? gear?.connections[3].channel
+                    : 'MIDI Out to'
+                }
+                value={midi_out}
+                onChange={setMidi_out}
+                onClick={setIsMidi_outChecked}
+                checked={gear.connections[3] ? true : false}
+              />
+              <GearInput
+                type="text"
+                placeholder={
+                  gear && gear?.connections[4]
+                    ? gear?.connections[4].channel
+                    : 'USB Port'
+                }
+                value={usb}
+                onChange={setUsb}
+                onClick={setIsUsbChecked}
+                checked={gear.connections[4] ? true : false}
+              />
+              <SaveButton text="Save" type="submit" />
+            </form>
+          </>
+        )}
       </main>
     </div>
   );
