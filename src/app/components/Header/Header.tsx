@@ -53,7 +53,7 @@ export default function Header({
       )}
       {withBackButton && (
         <div className={styles.backButton}>
-          <BackButton isHighlighted={isHighlighted} />
+          <BackButton isHighlighted={isHighlighted} onClick={onClick} />
         </div>
       )}
       {text && (
