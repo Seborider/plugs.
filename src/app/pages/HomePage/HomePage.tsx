@@ -30,7 +30,7 @@ export default function HomePage(): JSX.Element {
         withLogo
         withBurgerButton
         className={style.header}
-        onClick={() => modalClick()}
+        onClick={modalClick}
       />
 
       <main className={style.main}>
