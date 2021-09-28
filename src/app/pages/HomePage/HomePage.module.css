@@ -55,3 +55,9 @@ a[href^='mailto:'] {
   color: var(--primary-light);
   text-decoration: none;
 }
+
+.emptyPage {
+  color: var(--primary-light);
+  margin-top: 2rem;
+  text-decoration: none;
+}

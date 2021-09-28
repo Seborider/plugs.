@@ -8,6 +8,7 @@ import useFetch from '../../hooks/useFetch';
 import { useState } from 'react';
 import Typography from '../../components/Typography/Typography';
 import BurgerButton from '../../components/BurgerButton/BurgerButton';
+import { Link } from 'react-router-dom';
 
 export default function HomePage(): JSX.Element {
   const [isModalOpen, setModal] = useState(false);
@@ -44,6 +45,14 @@ export default function HomePage(): JSX.Element {
               key={item.name}
             />
           ))}
+        {gear?.length === 0 && (
+          <>
+            <Link to="/add" className={style.emptyPage}>
+              Add Gear
+            </Link>
+            <div className={style.line}></div>
+          </>
+        )}
       </main>
       <section>
         {isModalOpen === true && (
