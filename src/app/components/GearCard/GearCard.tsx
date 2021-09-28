@@ -29,7 +29,7 @@ export default function GearCard({
             <GearCardConnection
               connection={connection.connection}
               channel={connection.channel}
-              key={name}
+              key={connection.channel}
             />
           ))}
         </div>
