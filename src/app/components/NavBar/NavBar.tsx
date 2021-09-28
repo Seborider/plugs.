@@ -19,11 +19,9 @@ export default function NavBar({
 }: NavBarProps): JSX.Element {
   const active = {
     fill: 'var(--primary-accent)',
-    stroke: 'var(--primary-accent)',
   };
 
   const inactive = {
-    stroke: 'var(--navigation-icon-color)',
     fill: 'var(--navigation-icon-color)',
   };
   return (
