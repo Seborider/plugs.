@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
 import GearCard from '../../components/GearCard/GearCard';
 import NavBar from '../../components/NavBar/NavBar';
 import type { Gear } from '../../../types';
 import style from './HomePage.module.css';
 import useFetch from '../../hooks/useFetch';
-import { useState } from 'react';
 import Typography from '../../components/Typography/Typography';
 import BurgerButton from '../../components/BurgerButton/BurgerButton';
 import { Link } from 'react-router-dom';
 
 export default function HomePage(): JSX.Element {
   const [isModalOpen, setModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleteItem, setDeleteItem] = useState<Gear>();
 
   const { data: gear, refetch } = useFetch<Gear[]>('/api/gear');
   async function deleteGear(name: string) {
@@ -19,6 +20,7 @@ export default function HomePage(): JSX.Element {
       method: 'DELETE',
     });
     refetch();
+    setShowDeleteModal(false);
   }
 
   function modalClick() {
@@ -41,10 +43,38 @@ export default function HomePage(): JSX.Element {
               iconType={item.iconType}
               name={item.name}
               connections={item.connections}
-              onDeleteClick={() => deleteGear(item.name)}
+              onDeleteClick={() => (
+                setDeleteItem(item), setShowDeleteModal(true)
+              )}
               key={item.name}
             />
           ))}
+        {showDeleteModal && (
+          <section className={style.deleteModal}>
+            <Typography size="m" color="white">
+              Delete gear?
+              <div className={style.line}></div>
+            </Typography>
+            <div className={style.buttonWrapper}>
+              <button
+                onClick={() => setShowDeleteModal(false)}
+                className={style.button}
+              >
+                <Typography size="s" color="dark">
+                  No
+                </Typography>
+              </button>
+              <button
+                onClick={() => deleteItem && deleteGear(deleteItem.name)}
+                className={style.button}
+              >
+                <Typography size="s" color="dark">
+                  Yes
+                </Typography>
+              </button>
+            </div>
+          </section>
+        )}
         {gear?.length === 0 && (
           <>
             <Link to="/add" className={style.emptyPage}>
@@ -54,6 +84,7 @@ export default function HomePage(): JSX.Element {
           </>
         )}
       </main>
+
       <section>
         {isModalOpen === true && (
           <div className={style.modal}>

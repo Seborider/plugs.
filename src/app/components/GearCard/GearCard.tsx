@@ -8,7 +8,7 @@ type GearCardProps = {
   iconType: 'Synth' | 'Effect' | 'Drum';
   name: string;
   connections: { channel: string; connection: string }[];
-  onDeleteClick?: () => Promise<void>;
+  onDeleteClick?: () => void;
   value?: string;
 };
 
@@ -33,7 +33,7 @@ export default function GearCard({
             />
           ))}
         </div>
-        <GearCardButtonSection onDeleteClick={onDeleteClick} name={name} />
+        <GearCardButtonSection onDeleteClick={onDeleteClick && onDeleteClick} />
       </div>
     </article>
   );
