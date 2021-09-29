@@ -43,6 +43,19 @@ export default function EditPage(): JSX.Element {
       setIsMidi_inChecked(gear.connections[2] ? true : false);
       setIsMidi_outChecked(gear.connections[3] ? true : false);
       setIsUsbChecked(gear.connections[4] ? true : false);
+      setOutput(
+        gear && gear?.connections[0] ? gear?.connections[0].channel : ''
+      );
+      setInput(
+        gear && gear?.connections[1] ? gear?.connections[1].channel : ''
+      );
+      setMidi_in(
+        gear && gear?.connections[2] ? gear?.connections[2].channel : ''
+      );
+      setMidi_out(
+        gear && gear?.connections[3] ? gear?.connections[3].channel : ''
+      );
+      setUsb(gear && gear?.connections[4] ? gear?.connections[4].channel : '');
     }
   }, [gear]);
 
