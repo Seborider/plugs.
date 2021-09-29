@@ -6,16 +6,12 @@ import type { Gear } from '../../../types';
 import style from './HomePage.module.css';
 import useFetch from '../../hooks/useFetch';
 import Typography from '../../components/Typography/Typography';
-
-export default function HomePage(): JSX.Element {
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [deleteItem, setDeleteItem] = useState<Gear>();
-import { useState } from 'react';
-import Typography from '../../components/Typography/Typography';
 import BurgerButton from '../../components/BurgerButton/BurgerButton';
 
 export default function HomePage(): JSX.Element {
   const [isModalOpen, setModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleteItem, setDeleteItem] = useState<Gear>();
 
   const { data: gear, refetch } = useFetch<Gear[]>('/api/gear');
   async function deleteGear(name: string) {
@@ -54,16 +50,23 @@ export default function HomePage(): JSX.Element {
           ))}
         {showDeleteModal && (
           <section className={style.deleteModal}>
-            <Typography size="s" color="white">
+            <Typography size="m" color="white">
               Delete gear?
+              <div className={style.line}></div>
             </Typography>
-            <div>
-              <button onClick={() => setShowDeleteModal(false)}>
+            <div className={style.buttonWrapper}>
+              <button
+                onClick={() => setShowDeleteModal(false)}
+                className={style.button}
+              >
                 <Typography size="s" color="dark">
                   No
                 </Typography>
               </button>
-              <button onClick={() => deleteGear(deleteItem.name)}>
+              <button
+                onClick={() => deleteGear(deleteItem.name)}
+                className={style.button}
+              >
                 <Typography size="s" color="dark">
                   Yes
                 </Typography>
@@ -141,4 +144,3 @@ export default function HomePage(): JSX.Element {
     </div>
   );
 }
-// () => deleteGear(item.name);
