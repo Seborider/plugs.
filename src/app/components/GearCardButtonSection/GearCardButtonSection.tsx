@@ -6,7 +6,7 @@ import style from './GearCardButtonSection.module.css';
 
 type GearCardButtonSectionProps = {
   onDeleteClick?: () => void;
-  name?: string;
+  name: string;
 };
 
 export default function GearCardButtonSection({
