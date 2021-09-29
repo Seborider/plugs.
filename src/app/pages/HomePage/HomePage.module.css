@@ -16,7 +16,7 @@
 }
 
 .deleteModal {
-  border: white 1px solid;
+  border: var(--tertiary-accent) 1px solid;
   border-radius: 3px;
   display: grid;
   justify-content: center;
@@ -28,9 +28,30 @@
   height: 20%;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
-  z-index: 1000;
-  background-color: rgba(32, 32, 32, 0.65);
+  z-index: 998;
+  background-color: var(--modal-gradient);
+  text-align: center;
 }
+
+.buttonWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonNo {
+  background-color: var(--primary-light);
+  width: 3rem;
+  border: var(--tertiary-accent) 1px solid;
+  border-radius: 3px;
+}
+
+.button {
+  background-color: var(--primary-light);
+  width: 3rem;
+  border: var(--tertiary-accent) 1px solid;
+  border-radius: 3px;
+}
+
 .modal {
   display: flex;
   flex-direction: column;
@@ -63,7 +84,7 @@
 
 .line {
   border-bottom: 1px solid var(--primary-light);
-  width: 6rem;
+  width: 8rem;
   margin-bottom: 1rem;
 }
 
