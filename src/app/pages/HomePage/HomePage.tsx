@@ -11,7 +11,7 @@ import BurgerButton from '../../components/BurgerButton/BurgerButton';
 export default function HomePage(): JSX.Element {
   const [isModalOpen, setModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [deleteItem, setDeleteItem] = useState<Gear | undefined>();
+  const [deleteItem, setDeleteItem] = useState<Gear>();
 
   const { data: gear, refetch } = useFetch<Gear[]>('/api/gear');
   async function deleteGear(name: string) {
