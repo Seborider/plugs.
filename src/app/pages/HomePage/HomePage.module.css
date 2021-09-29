@@ -14,3 +14,20 @@
   top: 0;
   width: 100%;
 }
+
+.deleteModal {
+  border: white 1px solid;
+  border-radius: 3px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10rem;
+  left: 20%;
+  width: 60%;
+  height: 20%;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 1000;
+  background-color: rgba(32, 32, 32, 0.65);
+}
