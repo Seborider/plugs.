@@ -7,9 +7,10 @@ export type GearInputProps = {
     | 'Input from'
     | 'MIDI Out to'
     | 'MIDI In from'
-    | 'USB Port';
+    | 'USB Port'
+    | string;
   value?: string;
-  onClick: (type: boolean) => void;
+  onClick: () => void;
   onChange: (value: string) => void;
   className?: string;
   type?: string;
@@ -26,11 +27,7 @@ export default function GearInput({
   return (
     <section className={style.container}>
       <label className={style.switch}>
-        <input
-          checked={checked}
-          type="checkbox"
-          onChange={() => onClick(!checked)}
-        />
+        <input checked={checked} type="checkbox" onClick={onClick} />
         <span className={`${style.slider} ${style.round}`}></span>
       </label>
 

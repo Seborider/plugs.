@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import GearSelector from '../../components/GearSelector/GearSelector';
 import GearInput from '../../components/GearInput/GearInput';
@@ -7,6 +8,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import style from './AddPage.module.css';
 
 export default function AddPage(): JSX.Element {
+  const history = useHistory();
   const [gearName, setGearName] = useState<string>('');
 
   const [selectedGear, setSelectedGear] = useState<'Drum' | 'Synth' | 'Effect'>(
@@ -16,20 +18,41 @@ export default function AddPage(): JSX.Element {
   const [output, setOutput] = useState<string>('');
   const [isOutputChecked, setIsOutputChecked] = useState(false);
 
+  function toggleOutput() {
+    setIsOutputChecked(!isOutputChecked);
+  }
+
   const [input, setInput] = useState<string>('');
   const [isInputChecked, setIsInputChecked] = useState(false);
+
+  function toggleInput() {
+    setIsInputChecked(!isInputChecked);
+  }
 
   const [midi_in, setMidi_in] = useState<string>('');
   const [isMidi_inChecked, setIsMidi_inChecked] = useState(false);
 
+  function toggleMidiIn() {
+    setIsMidi_inChecked(!isMidi_inChecked);
+  }
+
   const [midi_out, setMidi_out] = useState<string>('');
   const [isMidi_outChecked, setIsMidi_outChecked] = useState(false);
+
+  function toggleMidiOut() {
+    setIsMidi_outChecked(!isMidi_outChecked);
+  }
 
   const [usb, setUsb] = useState<string>('');
   const [isUsbChecked, setIsUsbChecked] = useState(false);
 
+  function toggleUsb() {
+    setIsUsbChecked(!isUsbChecked);
+  }
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
     const connections = [
       isOutputChecked ? { channel: output, connection: 'Output to' } : '',
       isInputChecked ? { channel: input, connection: 'Input from' } : '',
@@ -39,6 +62,7 @@ export default function AddPage(): JSX.Element {
         : '',
       isUsbChecked ? { channel: usb, connection: 'USB Port' } : '',
     ];
+
     const newGear = {
       iconType: selectedGear,
       name: gearName,
@@ -53,7 +77,9 @@ export default function AddPage(): JSX.Element {
       body: JSON.stringify(newGear),
     });
     await response.json();
+    history.push('/');
   }
+
   return (
     <div className={style.pageContainer}>
       <Header
@@ -72,7 +98,7 @@ export default function AddPage(): JSX.Element {
             placeholder="Output to"
             value={output}
             onChange={setOutput}
-            onClick={setIsOutputChecked}
+            onClick={toggleOutput}
             checked={isOutputChecked}
           />
           <GearInput
@@ -80,7 +106,7 @@ export default function AddPage(): JSX.Element {
             placeholder="Input from"
             value={input}
             onChange={setInput}
-            onClick={setIsInputChecked}
+            onClick={toggleInput}
             checked={isInputChecked}
           />
           <GearInput
@@ -88,15 +114,16 @@ export default function AddPage(): JSX.Element {
             placeholder="MIDI In from"
             value={midi_in}
             onChange={setMidi_in}
-            onClick={setIsMidi_inChecked}
+            onClick={toggleMidiIn}
             checked={isMidi_inChecked}
           />
+
           <GearInput
             type="text"
             placeholder="MIDI Out to"
             value={midi_out}
             onChange={setMidi_out}
-            onClick={setIsMidi_outChecked}
+            onClick={toggleMidiOut}
             checked={isMidi_outChecked}
           />
           <GearInput
@@ -104,7 +131,7 @@ export default function AddPage(): JSX.Element {
             placeholder="USB Port"
             value={usb}
             onChange={setUsb}
-            onClick={setIsUsbChecked}
+            onClick={toggleUsb}
             checked={isUsbChecked}
           />
           <SaveButton text="Save" type="submit" />
