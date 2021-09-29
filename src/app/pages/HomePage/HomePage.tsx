@@ -10,6 +10,12 @@ import Typography from '../../components/Typography/Typography';
 export default function HomePage(): JSX.Element {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [deleteItem, setDeleteItem] = useState<Gear>();
+import { useState } from 'react';
+import Typography from '../../components/Typography/Typography';
+import BurgerButton from '../../components/BurgerButton/BurgerButton';
+
+export default function HomePage(): JSX.Element {
+  const [isModalOpen, setModal] = useState(false);
 
   const { data: gear, refetch } = useFetch<Gear[]>('/api/gear');
   async function deleteGear(name: string) {
@@ -20,9 +26,18 @@ export default function HomePage(): JSX.Element {
     setShowDeleteModal(false);
   }
 
+  function modalClick() {
+    setModal(!isModalOpen);
+  }
+
   return (
     <div className={style.pageContainer}>
-      <Header withLogo withBurgerButton className={style.header} />
+      <Header
+        withLogo
+        withBurgerButton
+        className={style.header}
+        onClick={modalClick}
+      />
 
       <main className={style.main}>
         {gear &&
@@ -58,6 +73,68 @@ export default function HomePage(): JSX.Element {
         )}
       </main>
 
+      <section>
+        {isModalOpen === true && (
+          <div className={style.modal}>
+            <article>
+              <header className={style.modalHeader}>
+                <div className={style.burgerButton}>
+                  <BurgerButton onClick={modalClick} />
+                </div>
+                <Typography
+                  size="m"
+                  color="white"
+                  children="About"
+                  className={style.modalHeader}
+                />
+                <div className={style.line}></div>
+              </header>
+              <div className={style.modalText}>
+                <Typography
+                  size="s"
+                  color="light"
+                  children={
+                    <>
+                      <p>
+                        Plugs. lets you organize your home studio: With plugs.
+                        finding what is where in your home studio was never
+                        easier!{' '}
+                      </p>
+                      <p>
+                        plugs. lets you define, where you plugged what, which
+                        cable goes where, and which output is connected to which
+                        input, and vice versa.
+                      </p>
+                      <p>
+                        Just look for your instrument itself, edit your
+                        everchanging and expanding gear setup on the go, or see
+                        your mixer for a quick overview.
+                      </p>
+                    </>
+                  }
+                />
+              </div>
+            </article>
+            <article>
+              <header className={style.modalHeader}>
+                <Typography size="m" color="white" children="Contact" />
+                <div className={style.line}></div>
+              </header>
+              <div className={style.modalText}>
+                <Typography
+                  size="s"
+                  color="light"
+                  children={
+                    <a href="mailto:mayer.sebobo@gmail.com?subject=plugs">
+                      mail@plugs.com
+                    </a>
+                  }
+                />
+              </div>
+            </article>
+          </div>
+        )}
+      </section>
       <nav>
         <NavBar selected="Home" />
       </nav>

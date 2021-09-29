@@ -31,3 +31,43 @@
   z-index: 1000;
   background-color: rgba(32, 32, 32, 0.65);
 }
+.modal {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--modal-gradient);
+  backdrop-filter: blur(5px);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.modalHeader {
+  margin-left: 2rem;
+}
+
+.burgerButton {
+  display: grid;
+  justify-items: end;
+  margin-top: 1.4rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+}
+
+.modalText {
+  margin: 2rem;
+}
+
+.line {
+  border-bottom: 1px solid var(--primary-light);
+  width: 6rem;
+  margin-bottom: 1rem;
+}
+
+a[href^='mailto:'] {
+  color: var(--primary-light);
+  text-decoration: none;
+}

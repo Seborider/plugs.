@@ -19,6 +19,7 @@ type HeaderProps = {
   value?: string;
   onChange?: (value: string) => void;
   onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
+  onClick?: () => void;
 };
 
 export default function Header({
@@ -32,6 +33,7 @@ export default function Header({
   isHighlighted,
   value,
   onChange,
+  onClick,
 }: HeaderProps): JSX.Element {
   return (
     <header
@@ -46,7 +48,7 @@ export default function Header({
       )}
       {withBurgerButton && (
         <div className={styles.burgerButton}>
-          <BurgerButton isHighlighted={isHighlighted} />
+          <BurgerButton isHighlighted={isHighlighted} onClick={onClick} />
         </div>
       )}
       {withBackButton && (
