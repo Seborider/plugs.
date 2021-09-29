@@ -12,6 +12,12 @@ export async function readGear(): Promise<Gear[]> {
   return gear;
 }
 
+export async function readSingleGear(name: string): Promise<Gear | null> {
+  const gearCollection = getGearCollection();
+  const singleGear = await gearCollection.findOne({ name });
+  return singleGear;
+}
+
 export async function deleteGear(name: string): Promise<void> {
   const gearCollection = getGearCollection();
   await gearCollection.deleteOne({ name });
@@ -23,4 +29,9 @@ export async function findGear(searchName: string): Promise<Gear[] | null> {
     .find<Gear>({ name: { $regex: new RegExp(searchName, 'i') } })
     .toArray();
   return result;
+}
+
+export async function editGear(name: string, gear: Gear): Promise<void> {
+  const gearCollection = getGearCollection();
+  await gearCollection.updateOne({ name }, { $set: gear });
 }

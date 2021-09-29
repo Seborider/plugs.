@@ -7,6 +7,7 @@ import style from './HomePage.module.css';
 import useFetch from '../../hooks/useFetch';
 import Typography from '../../components/Typography/Typography';
 import BurgerButton from '../../components/BurgerButton/BurgerButton';
+import { Link } from 'react-router-dom';
 
 export default function HomePage(): JSX.Element {
   const [isModalOpen, setModal] = useState(false);
@@ -73,6 +74,14 @@ export default function HomePage(): JSX.Element {
               </button>
             </div>
           </section>
+        )}
+        {gear?.length === 0 && (
+          <>
+            <Link to="/add" className={style.emptyPage}>
+              Add Gear
+            </Link>
+            <div className={style.line}></div>
+          </>
         )}
       </main>
 

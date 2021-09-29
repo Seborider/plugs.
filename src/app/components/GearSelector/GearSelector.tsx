@@ -6,7 +6,7 @@ import style from './GearSelector.module.css';
 import Typography from '../Typography/Typography';
 
 export type GearSelectorProps = {
-  selected: 'Drum' | 'Effect' | 'Synth';
+  selected: 'Drum' | 'Effect' | 'Synth' | unknown;
   className?: string;
   onChange: (icon: 'Drum' | 'Effect' | 'Synth') => void;
 };

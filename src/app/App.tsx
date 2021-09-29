@@ -4,11 +4,15 @@ import MixerPage from './pages/MixerPage/MixerPage';
 import HomePage from './pages/HomePage/HomePage';
 import AddPage from './pages/AddPage/AddPage';
 import SearchPage from './pages/SearchPage/SearchPage';
+import EditPage from './pages/EditPage/EditPage';
 
 function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/edit/:name">
+          <EditPage />
+        </Route>
         <Route path="/add">
           <AddPage />
         </Route>

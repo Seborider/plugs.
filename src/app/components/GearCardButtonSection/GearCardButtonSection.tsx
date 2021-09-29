@@ -6,10 +6,12 @@ import style from './GearCardButtonSection.module.css';
 
 type GearCardButtonSectionProps = {
   onDeleteClick?: () => void;
+  name?: string;
 };
 
 export default function GearCardButtonSection({
   onDeleteClick,
+  name,
 }: GearCardButtonSectionProps): JSX.Element {
   return (
     <section className={style.container}>
@@ -17,7 +19,7 @@ export default function GearCardButtonSection({
         <DeleteIcon fill="var(--primary-accent)" />
       </button>
 
-      <Link to="">
+      <Link to={`/edit/${name}`}>
         <EditIcon stroke="var(--primary-accent)" />
       </Link>
     </section>
