@@ -31,18 +31,12 @@
   z-index: 998;
   background-color: var(--modal-gradient);
   text-align: center;
+  overflow: scroll;
 }
 
 .buttonWrapper {
   display: flex;
   justify-content: space-between;
-}
-
-.buttonNo {
-  background-color: var(--primary-light);
-  width: 3rem;
-  border: var(--tertiary-accent) 1px solid;
-  border-radius: 3px;
 }
 
 .button {
