@@ -31,9 +31,9 @@ export default function SearchPage(): JSX.Element {
         value={searchValue}
       />
 
-      {gear && (
-        <main className={style.main}>
-          {gear.map((singleGear) => (
+      <main className={style.main}>
+        {gear &&
+          gear.map((singleGear) => (
             <GearCard
               iconType={singleGear.iconType}
               name={singleGear.name}
@@ -42,8 +42,8 @@ export default function SearchPage(): JSX.Element {
               key={singleGear.name}
             />
           ))}
-        </main>
-      )}
+      </main>
+
       <NavBar selected="Search" />
     </div>
   );
