@@ -6,4 +6,6 @@ export default {
   component: GearCardButtonSection,
 };
 
-export const ButtonSection = (): JSX.Element => <GearCardButtonSection />;
+export const ButtonSection = (): JSX.Element => (
+  <GearCardButtonSection name={''} />
+);
