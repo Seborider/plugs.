@@ -17,30 +17,20 @@ const port = process.env.PORT || 3001;
 
 app.use(express.json());
 
-app.post('/api/gear', async (request, response) => {
-  const gear: Gear = request.body;
-  await addGear(gear);
-  return response.status(200).send(gear);
-});
-
-app.get('/api/gear', async (_request, response) => {
-  const gear = await readGear();
-  response.json(gear);
+app.get('/api/gear/search', async (request, response) => {
+  const { query } = request.query;
+  if (!query || typeof query !== 'string') {
+    response.status(400).send();
+    console.log(query);
+    return;
+  }
+  const gear = await findGear(query);
+  response.status(200).json(gear);
 });
 
 app.get('/api/gear/:name', async (request, response) => {
   const { name } = request.params;
   const gear = await readSingleGear(name);
-  response.json(gear);
-});
-
-app.get('/api/gear/search', async (request, response) => {
-  const { query } = request.query;
-  if (!query || typeof query !== 'string') {
-    response.status(400).send();
-    return;
-  }
-  const gear = await findGear(query);
   response.json(gear);
 });
 
@@ -55,6 +45,17 @@ app.patch('/api/gear/:name', async (request, response) => {
   const gear: Gear = request.body;
   await editGear(name, gear);
   response.status(200).json(gear);
+});
+
+app.post('/api/gear', async (request, response) => {
+  const gear: Gear = request.body;
+  await addGear(gear);
+  return response.status(200).send(gear);
+});
+
+app.get('/api/gear', async (_request, response) => {
+  const gear = await readGear();
+  response.json(gear);
 });
 
 app.get('/api/hello', (_request, response) => {
