@@ -77,12 +77,18 @@ app.patch('/api/gear/:name', async (request, response) => {
 
 app.post('/api/gear', async (request, response) => {
   const gear: Gear = request.body;
+  if (!gear) {
+    response.status(400).send('Bad Request');
+  }
   await addGear(gear);
   return response.status(200).send(gear);
 });
 
 app.get('/api/gear', async (_request, response) => {
   const gear = await readGear();
+  if (!gear) {
+    response.status(400).send('Bad Request');
+  }
   response.json(gear);
 });
 
