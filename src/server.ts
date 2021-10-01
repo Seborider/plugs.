@@ -63,8 +63,16 @@ app.delete('/api/gear/:name', async (request, response) => {
 app.patch('/api/gear/:name', async (request, response) => {
   const { name } = request.params;
   const gear: Gear = request.body;
-  await editGear(name, gear);
-  response.status(200).json(gear);
+  if (!name) {
+    response.status(400).send('Bad Request');
+  }
+  try {
+    await editGear(name, gear);
+    response.status(200).json(gear);
+  } catch (error) {
+    console.error(error);
+    response.status(404).send(`${name} not found`);
+  }
 });
 
 app.post('/api/gear', async (request, response) => {
