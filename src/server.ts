@@ -20,41 +20,75 @@ app.use(express.json());
 app.get('/api/gear/search', async (request, response) => {
   const { query } = request.query;
   if (!query || typeof query !== 'string') {
-    response.status(400).send();
-    console.log(query);
+    response.status(400).send('Invalid');
     return;
   }
-  const gear = await findGear(query);
-  response.status(200).json(gear);
+  try {
+    const gear = await findGear(query);
+    response.status(200).json(gear);
+  } catch (error) {
+    console.error(error);
+    response.status(400).send('Bad Request');
+  }
 });
 
 app.get('/api/gear/:name', async (request, response) => {
   const { name } = request.params;
-  const gear = await readSingleGear(name);
-  response.json(gear);
+  if (!name) {
+    response.status(404).send(`${name} not found`);
+  }
+  try {
+    const gear = await readSingleGear(name);
+    response.json(gear);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send('Internal Server Error! Please try again later.');
+  }
 });
 
 app.delete('/api/gear/:name', async (request, response) => {
   const { name } = request.params;
-  await deleteGear(name);
-  response.status(200).send('Deleted');
+  if (!name) {
+    response.status(400).send('Bad Request');
+  }
+  try {
+    await deleteGear(name);
+    response.status(200).send('Deleted');
+  } catch (error) {
+    console.error(error);
+    response.status(401).send('Unauthorized request');
+  }
 });
 
 app.patch('/api/gear/:name', async (request, response) => {
   const { name } = request.params;
   const gear: Gear = request.body;
-  await editGear(name, gear);
-  response.status(200).json(gear);
+  if (!name) {
+    response.status(400).send('Bad Request');
+  }
+  try {
+    await editGear(name, gear);
+    response.status(200).json(gear);
+  } catch (error) {
+    console.error(error);
+    response.status(404).send(`${name} not found`);
+  }
 });
 
 app.post('/api/gear', async (request, response) => {
   const gear: Gear = request.body;
+  if (!gear) {
+    response.status(400).send('Bad Request');
+  }
   await addGear(gear);
   return response.status(200).send(gear);
 });
 
 app.get('/api/gear', async (_request, response) => {
   const gear = await readGear();
+  if (!gear) {
+    response.status(400).send('Bad Request');
+  }
   response.json(gear);
 });
 
