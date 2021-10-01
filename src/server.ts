@@ -35,7 +35,7 @@ app.get('/api/gear/search', async (request, response) => {
 app.get('/api/gear/:name', async (request, response) => {
   const { name } = request.params;
   if (!name) {
-    response.status(404).send('Name not found');
+    response.status(404).send(`${name} not found`);
   }
   try {
     const gear = await readSingleGear(name);
@@ -48,8 +48,16 @@ app.get('/api/gear/:name', async (request, response) => {
 
 app.delete('/api/gear/:name', async (request, response) => {
   const { name } = request.params;
-  await deleteGear(name);
-  response.status(200).send('Deleted');
+  if (!name) {
+    response.status(400).send('Bad Request');
+  }
+  try {
+    await deleteGear(name);
+    response.status(200).send('Deleted');
+  } catch (error) {
+    console.error(error);
+    response.status(401).send('Unauthorized request');
+  }
 });
 
 app.patch('/api/gear/:name', async (request, response) => {
