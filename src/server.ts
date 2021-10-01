@@ -23,8 +23,13 @@ app.get('/api/gear/search', async (request, response) => {
     response.status(400).send('Invalid');
     return;
   }
-  const gear = await findGear(query);
-  response.status(200).json(gear);
+  try {
+    const gear = await findGear(query);
+    response.status(200).json(gear);
+  } catch (error) {
+    console.error(error);
+    response.status(400).send('Bad Request');
+  }
 });
 
 app.get('/api/gear/:name', async (request, response) => {
