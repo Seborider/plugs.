@@ -20,8 +20,7 @@ app.use(express.json());
 app.get('/api/gear/search', async (request, response) => {
   const { query } = request.query;
   if (!query || typeof query !== 'string') {
-    response.status(400).send();
-    console.log(query);
+    response.status(400).send('Invalid');
     return;
   }
   const gear = await findGear(query);
@@ -30,8 +29,16 @@ app.get('/api/gear/search', async (request, response) => {
 
 app.get('/api/gear/:name', async (request, response) => {
   const { name } = request.params;
-  const gear = await readSingleGear(name);
-  response.json(gear);
+  if (!name) {
+    response.status(404).send('Name not found');
+  }
+  try {
+    const gear = await readSingleGear(name);
+    response.json(gear);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send('Internal Server Error! Please try again later.');
+  }
 });
 
 app.delete('/api/gear/:name', async (request, response) => {
