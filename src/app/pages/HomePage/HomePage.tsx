@@ -113,7 +113,7 @@ export default function HomePage(): JSX.Element {
                         easier!{' '}
                       </p>
                       <p>
-                        plugs. lets you define, where you plugged what, which
+                        Plugs. lets you define, where you plugged what, which
                         cable goes where, and which output is connected to which
                         input, and vice versa.
                       </p>
