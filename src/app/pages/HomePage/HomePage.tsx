@@ -115,7 +115,7 @@ export default function HomePage(): JSX.Element {
                       <p>
                         Plugs. lets you define, where you plugged what, which
                         cable goes where, and which output is connected to which
-                        input, and vice versa.
+                        input and vice versa.
                       </p>
                       <p>
                         Just look for your instrument itself, edit your
